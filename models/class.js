@@ -4,5 +4,17 @@ module.exports = function(sequelize, DataTypes) {
     gradeLevel: {type: DataTypes.STRING}
     });
     
+    // add association 
+    Class.associate = function(models) {
+        Class.belongsTo(models.Yearbook, {
+
+        });
+
+        Class.hasMany(models.Student, {
+
+        });
+    
+    }
+
     return Class;
 }

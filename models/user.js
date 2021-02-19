@@ -4,6 +4,14 @@ module.exports = function(sequelize, DataTypes) {
      email: {type: DataTypes.STRING, unique: true, validate: {isEmail: true}},
      password: {type: DataTypes.STRING}
     });
+
+    // add association
+    User.associate = function(models) {
+        User.hasMany(models.Yearbook, {
+
+
+        });
+    }
     
     return User;
 }
