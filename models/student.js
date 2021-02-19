@@ -7,6 +7,13 @@ module.exports = function(sequelize, DataTypes) {
      linkedIn: {type: DataTypes.STRING},
      title: {type: DataTypes.STRING}
     });
-    
+
+    //add student association 
+    Student.associate = function(models) {
+        Student.belongsTo(models.Class, {
+
+        });
+    }
+
     return Student;
 }
