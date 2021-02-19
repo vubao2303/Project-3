@@ -5,5 +5,11 @@ module.exports = function(sequelize, DataTypes) {
      year: {type: DataTypes.INTEGER}
     });
     
+    Yearbook.associate = function(models) {
+        Yearbook.hasMany(models.Class, {
+
+        });
+    }
+
     return Yearbook;
 }
