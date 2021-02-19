@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
-    var class = sequelize.define("class", {
+    var Class = sequelize.define("Class", {
     className: {type: DataTypes.STRING},
     gradeLevel: {type: DataTypes.STRING}
     });
     
-    return class;
+    return Class;
 }
