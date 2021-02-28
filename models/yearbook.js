@@ -8,10 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     Yearbook.associate = function(models) {
         Yearbook.hasMany(models.Class, {
 
-
         });
         Yearbook.belongsTo(models.User, {
-            as: Creator
         });
     }
 
