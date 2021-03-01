@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "partyplanner_db",
+    "database": "yearbook_db",
     "host": "localhost",
     "dialect": "mysql"
   },
