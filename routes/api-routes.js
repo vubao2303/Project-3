@@ -68,7 +68,7 @@ module.exports = function (app) {
     //      get all yearbooks associated with a specific user
 
     app.get("/api/yearbookscreator/:id", function (req, res) {
-        db.Yearbooks.findAll({ where: { Creator: req.params.id } }).then(function (data) {
+        db.Yearbooks.findAll({ where: { UserId: req.params.id } }).then(function (data) {
             res.json(data);
         });
     });
@@ -85,123 +85,114 @@ module.exports = function (app) {
     //          get all classes associated with a yearbook
     //              get all people associated with a class
 
-    app.get("/api/classes/:yearbook", function (req, res) {
-        db.Classes.findOne({ where: { id: req.params.id } }).then(function (data) {
+    app.get("/api/classes/:id", function (req, res) {
+        db.Classes.findAll({ where: { YearbookId: req.params.id } }).then(function (data) {
             res.json(data);
         });
     });
+
+    app.get("/api/students/:id", function (req, res) {
+        db.Students.findAll({ where: { ClassId: req.params.id } }).then(function (data) {
+            res.json(data);
+        });
+    });
+
 
     //      
-    //      create a yearbook
-    //      update basic yearbook data
+    //      create a yearbook (of a user)
 
-    //      create a class
-    //      update a class
-
-    //      create a person
-    //      update a person
-
-
-
-    app.get("/api/scenario/:id", function (req, res) {
-        db.Location.findOne({ where: { id: req.params.id } }).then(function (data) {
-            res.json(data);
-        });
-    });
-
-    app.get("/api/start", function (req, res) {
-        // find character belonging to user id
-        db.Character.findAll({ where: { UserId: req.user.id } }).then(function (data) {
-            // if there are none or if the most recent one is dead
-            if (data[0] == null || data[data.length - 1].death_message !== null) {
-                // create one
-                db.Character.create({
-                    UserId: req.user.id,
-                    description: "This character is you, dummy. They possess all of your virtues, and more importantly your vices."
-                    // then search again and return its data
-                }).then(function () {
-                    db.Character.findAll({ where: { UserId: req.user.id } }).then(function (data) {
-                        res.json(data[data.length - 1]);
-                    });
-                });
-            }
-            else (res.json(data[data.length - 1]));
-        });
-    });
-
-    app.get("/api/restart", function (req, res) {
-        db.Character.create({
-            UserId: req.user.id,
-            description: "This character is you, dummy. They possess all of your virtues, and more importantly your vices."
-        });
-    });
-
-    // finds all options of a location id
-    app.get("/api/options/:id", function (req, res) {
-        db.Option.findAll({ where: { LocationId: req.params.id } }).then(function (data) {
-            res.json(data);
-        });
-    });
-
-    // finds one id by its id
-    app.get("/api/option/:id", function (req, res) {
-        db.Option.findOne({ where: { id: req.params.id } }).then(function (data) {
-            res.json(data);
-        });
-    });
-
-    // gets item by id
-    app.get("/api/item/:id", function (req, res) {
-        console.log(req.params.id);
-        db.Item.findOne({ where: { id: req.params.id } }).then(function (data) {
-            res.json(data);
-        });
-    });
-
-    // put an item into a users inventory
-    app.post("/api/additem", function (req, res) {
-        db.Inventory.create({
-            ItemId: req.body.itemid,
-            CharacterId: req.body.characterid
+    app.post("/api/newBook", function (req, res) {
+        db.Yearbooks.create({
+            schoolName: req.body.name,
+            numberOfClasses: req.body.number,
+            year: req.body.year,
+            UserId: req.body.user
         }).then(function () {
             res.json(null);
         });
     });
 
-    // gets all item ids of a specific character in inventory
-    app.get("/api/inventory/:id", function (req, res) {
-        db.Inventory.findAll({ where: { CharacterId: req.params.id } }).then(function (data) {
-            // console.log(data);
-            res.json(data);
-        });
-    });
 
-    // update character stats and location based on character id
-    app.put("/api/update/character", function (req, res) {
+    //      update basic yearbook data
+
+    app.put("/api/update/book", function (req, res) {
         // Use the sequelize update method to update a todo to be equal to the value of req.body
-        // req.body will contain the id of the todo we need to update
-        db.Character.update(
-            { strength: req.body.newStr, intelligence: req.body.newInt, dexterity: req.body.newDex, LocationId: req.body.newLoc },
+        // req.body will contain the id of the yearbook we need to update
+        db.Yearbook.update(
+            {
+                schoolName: req.body.name,
+                numberOfClasses: req.body.number,
+                year: req.body.year,
+                UserId: req.body.user
+            },
             { where: { id: req.body.id } }
         );
         res.json(null);
     });
 
-    // update character stats and location based on character id
-    app.put("/api/kill/character", function (req, res) {
+    //      create a class (in a yearbook)
+
+    app.post("/api/newClass", function (req, res) {
+        db.Classes.create({
+            className: req.body.name,
+            gradeLevel: req.body.grade,
+            YearbookId: req.body.id
+        }).then(function () {
+            res.json(null);
+        });
+    });
+
+    //      update a class
+
+    app.put("/api/update/class", function (req, res) {
         // Use the sequelize update method to update a todo to be equal to the value of req.body
-        // req.body will contain the id of the todo we need to update
-        db.Character.update(
-            { death_message: req.body.death_message },
+        // req.body will contain the id of the yearbook we need to update
+        db.Class.update(
+            {
+                className: req.body.name,
+                gradeLevel: req.body.grade,
+                YearbookId: req.body.id
+            },
             { where: { id: req.body.id } }
         );
         res.json(null);
     });
 
-    // get character by id
-    app.get("/api/characters/:id", function (req, res) {
-        db.Character.findOne({ where: { id: req.params.id } }).then(function (data) {
-            res.json(data);
+    //      create a person (in a class) 
+
+    app.post("/api/newPerson", function (req, res) {
+        db.Students.create({
+            name: req.body.name,
+            nickname: req.body.nickname,
+            hobbies: req.body.hobbies,
+            quote: req.body.quote,
+            linkedIn: req.body.linkedin,
+            title: req.body.title,
+            ClassId: req.body.class
+        }).then(function () {
+            res.json(null);
         });
     });
+
+    //      update a person
+
+    app.put("/api/update/person", function (req, res) {
+        // Use the sequelize update method to update a todo to be equal to the value of req.body
+        // req.body will contain the id of the yearbook we need to update
+        db.Class.update(
+            {
+                name: req.body.name,
+                nickname: req.body.nickname,
+                hobbies: req.body.hobbies,
+                quote: req.body.quote,
+                linkedIn: req.body.linkedin,
+                title: req.body.title,
+                ClassId: req.body.class
+            },
+            { where: { id: req.body.id } }
+        );
+        res.json(null);
+    });
+
+
 };
