@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Yearbook = sequelize.define("Yearbook", {
      schoolName: {type: DataTypes.STRING},
-     numberOfClasses: {type: DataTypes.INTEGER},
+     name: {type: DataTypes.STRING},
      year: {type: DataTypes.INTEGER}
     });
     
