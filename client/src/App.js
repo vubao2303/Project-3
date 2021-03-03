@@ -4,6 +4,7 @@ import './App.css';
 import Nav from "./components/Nav/Nav";
 // import Header from "./components/Header";
 import Yearbook from "./pages/Yearbook"
+import Login from "./pages/Login"
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Yearbook} />
+        <Route exact path="/login" component={Login} />
+        {/* <Route exact path="/" component={Yearbook} /> */}
+
         {/* <Route exact path="/save" component={Saved} />
         <Route exact path="/search" component={Books} /> */}
         {/* <Route component={NoMatch} /> */}
