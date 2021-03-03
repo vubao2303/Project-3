@@ -55,4 +55,9 @@ router
     .get(studentController.findById)
     .put(studentController.update);
 
+// Matches with "/api/classes/:id"
+router
+    .route("/class/:class")
+    .get(studentController.findByClass);
+
 module.exports = router;
