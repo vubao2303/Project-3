@@ -33,8 +33,6 @@ function StudentForm() {
         <div className="input-group mb-3">
           <input type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
         </div>
-
-
       </form>
     </div>
   )
