@@ -17,7 +17,7 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    findyByUser: function (req, res) {
+    findByUser: function (req, res) {
         db.Yearbook.findAll({ where: { UserId: req.params.user } })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
