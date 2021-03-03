@@ -4,6 +4,7 @@ var session = require("express-session");
 // Requiring passport as we've configured it
 // var passport = require("./config/passport");
 var path = require("path");
+const routes = require("./routes");
 
 
 // Setting up port and requiring models for syncing
@@ -18,6 +19,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(routes);
 
 // We need to use sessions to keep track of our user's login status
 // app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
