@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
 
         });
         Yearbook.belongsTo(models.User, {
-            as: Creator
         });
     }
 
