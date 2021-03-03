@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 // import Header from "./components/Header";
 import Yearbook from "./pages/Yearbook"
 import Login from "./pages/Login"
+import Search from "./pages/Search"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Yearbook} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/search" component={Search} />
         {/* <Route exact path="/" component={Yearbook} /> */}
 
         {/* <Route exact path="/save" component={Saved} />
