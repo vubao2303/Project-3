@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+// Pseudo Code
+// API Routes
+// Information we want to get: 
+// Display Name, Nickname, Picture, Quotes, Hobbies, Linkedin, Title
+// Route name - /name, /nick, /pic /quote /hobbies /linked /title 
+// < href = /name /> 
+// 
+=======
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
@@ -196,3 +205,4 @@ module.exports = function (app) {
 
 
 };
+>>>>>>> 5266e00959c2b35699cfe95cac950a3d0d9f01b9
