@@ -43,3 +43,16 @@ app.put("/api/update/person", function (req, res) {
     );
     res.json(null);
 });
+
+// Matches with "/api/student"
+router
+    .route("/")
+    .post(studentController.create);
+
+// Matches with "/api/classes/:id"
+router
+    .route("/:id")
+    .get(studentController.findById)
+    .put(studentController.update);
+
+module.exports = router;

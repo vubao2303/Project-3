@@ -37,3 +37,16 @@ app.put("/api/update/class", function (req, res) {
     );
     res.json(null);
 });
+
+// Matches with "/api/classes"
+router
+    .route("/")
+    .post(classController.create);
+
+// Matches with "/api/classes/:id"
+router
+    .route("/:id")
+    .get(classController.findById)
+    .put(classController.update);
+
+module.exports = router;
