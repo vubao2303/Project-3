@@ -58,6 +58,10 @@ export default API;
 //     getUserData: function (){
 //         return axios.get("/api/users/user_data");
 //     },
+// nameTaken: function (userData) {
+//     console.log("triggered api");
+//     return axios.get("/api/users/signup", userData);
+// },
 //     findYearbooks: function() {
 //         return axios.get("/api/books");
 //     },

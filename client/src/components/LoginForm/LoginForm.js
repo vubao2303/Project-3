@@ -9,13 +9,33 @@ function LoginForm() {
     function signup(userName, passWord) {
         console.log("triggeredsignup");
         var userData = { username: userName, password: passWord };
-        API.signup(userData);
+        API.signup(userData).then(res => {
+            console.log(res);
+            if(res.data === false){
+                console.log("taken");
+                alert("Username already taken!");
+            }
+            else{
+                console.log("not taken");
+                alert("Account created!");
+            }
+        });
     }
 
     function login(userName, passWord) {
         console.log("triggeredlogin");
         var userData = { username: userName, password: passWord };
-        API.login(userData);
+        API.login(userData).then((res) => {
+            console.log(res);
+            if(res){
+                console.log("taken");
+                alert("Username taken!");
+            }
+            else{
+                console.log("not taken");
+                alert("Account created!");
+            }
+        });
     }
 
     return (

@@ -12,10 +12,12 @@ module.exports = {
         console.log("got to controller");
         db.User.create(req.body)
             .then(function () {
-                res.redirect(307, "/api/login");
+                res.json(true);
+                // res.redirect(307, "/api/login");
             })
             .catch(function (err) {
-                res.status(401).json(err);
+                // res.status(401).json(err);
+                res.json(false);
             });
     },
     logout: function (req, res) {
