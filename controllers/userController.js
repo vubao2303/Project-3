@@ -7,6 +7,7 @@ module.exports = {
         res.json(req.user);
     },
     signup: function (req, res) {
+        console.log("got to controller");
         db.User.create(req.body)
             .then(function () {
                 res.redirect(307, "/api/login");
