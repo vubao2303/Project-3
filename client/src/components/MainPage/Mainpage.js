@@ -39,17 +39,19 @@ function MainPage() {
         <h2><small>CREATE MEMORY</small></h2>
 
         <br />
-        <div className="button-hover-reveal-wrapper hide-for-small-only">
-          <label>Learn More</label>
-          <a href="/login" target="_blank" rel="noreferrer"
-            className="button-hover-reveal">Login</a>
+        <div className="mainLinks">
 
-          <Link to={"/search"}>
-            <button><a className="button-hover-reveal">Search</a></button>
+
+          <Link to={"/login"}>
+            <button><a className="login-bnt">Login</a></button>
           </Link>
 
-          <Link to={"/Creat"}>
-            <a className="button-hover-reveal">Create</a>
+          <Link to={"/search"}>
+            <button><a className="bnt">Search</a></button>
+          </Link>
+
+          <Link to={"/Create"}>
+            <button><a className="create-bnt">Create</a></button>
           </Link>
 
         </div>
