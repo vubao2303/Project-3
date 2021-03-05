@@ -10,6 +10,9 @@ const API = {
     },
     getUserData: function () {
         return axios.get("/api/users/user_data");
+    },
+    createYearbook: function (bookData) {
+        return axios.post("/api/books", bookData);
     }
 }
 export default API;
