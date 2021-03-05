@@ -7,14 +7,14 @@ function LoginForm() {
     const [password, setPassword] = useState("");
 
     function signup(userName, passWord) {
-        console.log("triggered");
-        var userData = {username: userName, password: passWord};
+        console.log("triggeredsignup");
+        var userData = { username: userName, password: passWord };
         API.signup(userData);
     }
 
     function login(userName, passWord) {
-        console.log("triggered");
-        var userData = {username: userName, password: passWord};
+        console.log("triggeredlogin");
+        var userData = { username: userName, password: passWord };
         API.login(userData);
     }
 
@@ -39,14 +39,16 @@ function LoginForm() {
                     }} />
                 </div>
 
-                <button type="submit" className="btn btn-primary" onClick = {(event) => 
-                    {event.preventDefault();
-                    login(name, password);}
-                    }>Login</button>
-                <button type="submit" className="btn btn-primary" onClick = {(event) => 
-                    {event.preventDefault();
-                    signup(name, password);}
-                    }>Signup</button>
+                <button type="submit" className="btn btn-primary" onClick={(event) => {
+                    event.preventDefault();
+                    login(name, password);
+                }
+                }>Login</button>
+                <button type="submit" className="btn btn-primary" onClick={(event) => {
+                    event.preventDefault();
+                    signup(name, password);
+                }
+                }>Signup</button>
             </form>
         </div>
     )

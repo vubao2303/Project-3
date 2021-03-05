@@ -6,6 +6,7 @@ import Nav from "./components/Nav/Nav";
 import Yearbook from "./pages/Yearbook"
 import Login from "./pages/Login"
 import Search from "./pages/Search"
+import Create from "./pages/Create"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" component={Yearbook} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/search" component={Search} />
+        <Route exact path="/create" component={Create} />
         {/* <Route exact path="/" component={Yearbook} /> */}
 
         {/* <Route exact path="/save" component={Saved} />
