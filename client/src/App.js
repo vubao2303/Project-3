@@ -7,6 +7,8 @@ import Yearbook from "./pages/Yearbook"
 import Login from "./pages/Login"
 import Search from "./pages/Search"
 import Create from "./pages/Create"
+import Main from "./pages/Main"
+
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
 
 
       <Switch>
-        <Route exact path="/" component={Yearbook} />
+        <Route exact path="/" component={Main} />
+
+        <Route exact path="/yearbook" component={Yearbook} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/create" component={Create} />
