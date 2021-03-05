@@ -9,7 +9,7 @@ INSERT INTO yearbook (schoolname, year, name)
 VALUES ("UC Berkeley", 2021, "null")
 
 
-INSERT INTO class (grade, name)
+INSERT INTO classes (grade, name)
 -- insert class values
 VALUES ("null", "consoleloggers")
 

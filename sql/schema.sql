@@ -12,7 +12,7 @@ CREATE TABLE yearbook (
     PRIMARY KEY (id)
 );
 -- add class table datatypes
-CREATE TABLE class (
+CREATE TABLE classes (
     id INT NOT NULL AUTO_INCREMENT,
     grade INT,
     name VARCHAR(25),
