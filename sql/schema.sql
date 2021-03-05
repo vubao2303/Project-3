@@ -22,9 +22,9 @@ CREATE TABLE class (
 CREATE TABLE students (
        id INT NOT NULL AUTO_INCREMENT,
        name VARCHAR(25),
-       hobbies VARCHAR(25),
+       hobbies VARCHAR(50),
        quote VARCHAR(50),
-       linkedIn VARCHAR(25),
+       linkedIn VARCHAR(50),
        title VARCHAR(25),
        PRIMARY KEY (id)
 );
