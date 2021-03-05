@@ -1,29 +1,25 @@
--- Drops the blogger if it exists currently --
+-- create and use database in mysql
 DROP DATABASE IF EXISTS yearbook_db;
--- Creates the "blogger" database --
 CREATE DATABASE yearbook_db;
 USE yearbook_db;
-
--- create new table define the characters values and rules
+-- create 3 tables for yearbook
+-- add yearbook table datatypes
 CREATE TABLE yearbook (
-    -- auto increment id with 25 charater names
     id INT NOT NULL AUTO_INCREMENT,
-    school name VARCHAR NOT NULL(25),
+    schoolname VARCHAR (25),
     year INT NOT NULL,
     name VARCHAR(25),
     PRIMARY KEY (id)
-)
-
+);
+-- add class table datatypes
 CREATE TABLE class (
-    -- AUTO INCREMENT & grade number
     id INT NOT NULL AUTO_INCREMENT,
     grade INT NOT NULL,
     name VARCHAR(25),
     PRIMARY KEY(id)
-)
-
+);
+-- add students table datatypes
 CREATE TABLE students (
-    -- Auton increment student attributes
        id INT NOT NULL AUTO_INCREMENT,
        name VARCHAR(25),
        hobbies VARCHAR(25),
@@ -31,6 +27,4 @@ CREATE TABLE students (
        linkedIn VARCHAR(25),
        title VARCHAR(25),
        PRIMARY KEY (id)
-
-)
- 
+);
