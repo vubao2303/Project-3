@@ -13,7 +13,10 @@ const API = {
     },
     createYearbook: function (bookData) {
         return axios.post("/api/books", bookData);
-    }
+    },
+    getBooksByYear: function (year) {
+        return axios.get("/api/books/year/" + year);
+    },
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API
@@ -76,4 +79,5 @@ export default API;
 //     getBooksByUser: function(user){
 //         return axios.get("/api/books/user/" + user);
 //     }
+
 // }
