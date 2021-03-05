@@ -4,9 +4,19 @@ USE yearbook_db
 -- Import seeds for sql data base
 -- add parameters to add into yearbook 
 -- the order will insert into database
+
 INSERT INTO yearbook (schoolname, year, name)
 -- insert values
 VALUES ("UC Berkeley", 2021, "null")
+
+
+
+
+SELECT * FROM yearbook_db.Classes;
+USE yearbook_db;
+INSERT INTO classes (gradeLevel, className,createdAt, updatedAt)
+-- insert class values
+VALUES ("null", "consoleloggers", "2021-03-05 05:20:15", "2021-03-05 05:20:15")
 
 
 INSERT INTO classes (grade, name)

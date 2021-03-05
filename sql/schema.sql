@@ -28,3 +28,4 @@ CREATE TABLE students (
        title VARCHAR (25),
        PRIMARY KEY (id)
 );
+

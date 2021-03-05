@@ -31,8 +31,8 @@
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.5.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sequelize": "^6.5.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

@@ -1,12 +1,11 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Yearbook = sequelize.define("Yearbook", {
-     schoolName: {type: DataTypes.STRING},
-     numberOfClasses: {type: DataTypes.INTEGER},
-     year: {type: DataTypes.INTEGER}
+        schoolName: { type: DataTypes.STRING },
+        year: { type: DataTypes.INTEGER }
     });
-    
+
     // add yearbook
-    Yearbook.associate = function(models) {
+    Yearbook.associate = function (models) {
         Yearbook.hasMany(models.Class, {
 
         });
