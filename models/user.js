@@ -15,18 +15,9 @@ module.exports = function (sequelize, DataTypes) {
         });
     }
 
-
-
-
-
-
-
-
-
-
-
     // this is for user authentication/ make sure that that no repeated user is logged in 
     User.prototype.validPassword = function (password) {
+        // call this validPassword, in where you call for the login
         return bcrypt.compareSync(password, this.password);
     };
     // Hooks are automatic methods that run during various phases of the User Model lifecycle
@@ -37,3 +28,10 @@ module.exports = function (sequelize, DataTypes) {
 
     return User;
 }
+
+// user id in local storage, once you log out you want to clear the local storage as well 
+
+
+// if already a user then 
+// before make a create/sighup  button, use a findone to make sure that user is there or not 
+// if user already there, then login, 
