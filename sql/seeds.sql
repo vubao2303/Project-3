@@ -2,4 +2,6 @@
 USE yearbook_db
 
 -- Import seeds for sql data base
-INSERT INTO yearbook (schoolName, year)
+-- add parameters to add into yearbook 
+-- the order will insert into database
+INSERT INTO yearbook (schoolname, year, name)
