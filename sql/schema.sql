@@ -6,7 +6,7 @@ USE yearbook_db;
 -- add yearbook table datatypes
 CREATE TABLE yearbook (
     id INT NOT NULL AUTO_INCREMENT,
-    schoolname VARCHAR NOT NULL (25),
+    schoolname VARCHAR (25),
     year INT NOT NULL,
     name VARCHAR(25),
     PRIMARY KEY (id)
@@ -22,9 +22,9 @@ CREATE TABLE class (
 CREATE TABLE students (
        id INT NOT NULL AUTO_INCREMENT,
        name VARCHAR(25),
-       hobbies VARCHAR NOT NULL(50),
-       quote VARCHAR NOT NULL(50),
+       hobbies VARCHAR (50),
+       quote VARCHAR (50),
        linkedIn VARCHAR(50),
-       title VARCHAR NOT NULL(25),
+       title VARCHAR (25),
        PRIMARY KEY (id)
 );
