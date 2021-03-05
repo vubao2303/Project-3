@@ -7,6 +7,7 @@ router
     .route("/login")
     .post(passport.authenticate("local"), userController.login);
 
+
 // Matches with "/api/users/signup"
 router
     .route("/signup")
