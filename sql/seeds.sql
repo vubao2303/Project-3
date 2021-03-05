@@ -8,9 +8,10 @@ INSERT INTO yearbook (schoolname, year, name)
 -- insert values
 VALUES ("UC Berkeley", 2021, "Bootcamp")
 
+
 INSERT INTO class (grade, name)
 -- insert class values
-VALUES ("13", "consoleloggers")
+VALUES ("null", "consoleloggers")
 
 INSERT INTO students (name, hobbies, quote, linkedIn, title)
 -- insert studnets values
