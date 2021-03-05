@@ -11,11 +11,11 @@ function LoginForm() {
         var userData = { username: userName, password: passWord };
         API.signup(userData).then(res => {
             console.log(res);
-            if(res.data === false){
+            if (res.data === false) {
                 console.log("taken");
                 alert("Username already taken!");
             }
-            else{
+            else {
                 console.log("not taken");
                 alert("Account created!");
             }
@@ -27,15 +27,19 @@ function LoginForm() {
         var userData = { username: userName, password: passWord };
         API.login(userData).then((res) => {
             console.log(res);
-            if(res){
+            if (res) {
                 console.log("taken");
                 alert("Username taken!");
             }
-            else{
+            else {
                 console.log("not taken");
                 alert("Account created!");
             }
         });
+    }
+
+    function takeHome() {
+
     }
 
     return (

@@ -37,7 +37,7 @@ function CreateForm() {
                 <button onClick={(event) => {
                     event.preventDefault();
                     createYearbook(name, year);
-                }} type="submit" className="btn btn-primary">Submit</button>
+                }} type="submit" className="btn btn-primary">Create</button>
             </div>
         </div>
 

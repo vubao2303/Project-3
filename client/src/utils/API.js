@@ -17,6 +17,9 @@ const API = {
     getBooksByYear: function (year) {
         return axios.get("/api/books/year/" + year);
     },
+    saveStudent: function (classData) {
+        return axios.post("/api/classes", classData);
+    }
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API

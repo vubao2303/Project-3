@@ -8,6 +8,7 @@ import Login from "./pages/Login"
 import Search from "./pages/Search"
 import Create from "./pages/Create"
 import Main from "./pages/Main"
+import Student from "./pages/StudentPage"
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/create" component={Create} />
+        <Route exact path="/student" component={Student} />
+
         {/* <Route exact path="/" component={Yearbook} /> */}
         {/* <Route exact path="/save" component={Saved} />
         <Route exact path="/search" component={Books} /> */}
