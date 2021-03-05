@@ -8,7 +8,7 @@ USE yearbook_db;
 CREATE TABLE yearbook (
     -- auto increment id with 25 charater names
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(25),
+    schoolName VARCHAR NOT NULL(25),
     year INT NOT NULL,
     name VARCHAR(25),
     PRIMARY KEY (id)
@@ -22,5 +22,16 @@ CREATE TABLE class (
     PRIMARY KEY(id)
 )
 
-CREATE TABLE students
-    id INT NOT NULL AUTO_INCREMENT
+CREATE TABLE students (
+    -- Auton increment student attributes
+       id INT NOT NULL AUTO_INCREMENT,
+       name VARCHAR(25),
+       nickName VARCHAR(25),
+       hobbies VARCHAR(25),
+       quote VARCHAR(50),
+       linkedIn VARCHAR(25),
+       title VARCHAR(25),
+       PRIMARY KEY (id)
+
+)
+ 
