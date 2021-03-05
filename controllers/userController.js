@@ -4,9 +4,17 @@ var passport = require("../config/passport");
 // Defining methods for the user controller
 module.exports = {
     login: function (req, res) {
-        console.log(res)
-        res.json(req.user);
+        // console.log(req.user);
+        // res.json(req.user);
         // we need to check here for password if it is there already
+        passport.authenticate('local', function (err, user, info) {
+            console.log(user);
+            if (!user) { return res.redirect('/login'); }
+            req.logIn(user, function (err) {
+                if (err) { return next(err); }
+                return res.redirect('/');
+            });
+        })(req, res);
 
     },
     signup: function (req, res) {

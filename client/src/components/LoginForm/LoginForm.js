@@ -27,15 +27,8 @@ function LoginForm() {
         var userData = { username: userName, password: passWord };
         API.login(userData).then((res) => {
             console.log(res);
-            if(res){
-                console.log("taken");
-                alert("Username taken!");
-            }
-            else{
-                console.log("not taken");
-                alert("Account created!");
-            }
-        });
+            console.log("im baaaaaaaaaack");
+        })
     }
 
     return (
