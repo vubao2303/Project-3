@@ -1,0 +1,89 @@
+html {
+  height: 100%; 
+  background-image: url(nav.png);
+
+}
+
+body {
+  background-image: url(nav.png);
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url("nav.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.hero-text-projects {
+  text-align: center;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Roboto Mono', monospace; */
+}
+
+h1 {
+  font-size:50px;
+  font-family: "Snell Roundhand", cursive;
+  font-weight: bolder;
+  -webkit-text-stroke: 2px ;
+  color: black;
+  text-shadow:
+      1px 1px 0 #715C21,
+      1px 1px 0 wheat,
+      -1px 1px 0 white
+    
+     /* 1px -1px 0 rgb(151, 148, 148), 
+     -1px 1px 0 white, 
+      1px 1px 0 black;    */
+}
+
+
+h2 {
+  font-family: cursive;
+  font-weight: bolder;
+  -webkit-text-stroke: 1px ;
+  color: black;
+  text-shadow:
+    -1px 1px 0 white
+}
+
+a{
+  color:rgba(29, 27, 27, 0.782);
+  font-weight: bold;
+}
+button {
+  border: solid;
+  color: wheat;
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  background-color:gainsboro;
+
+}
+
+.btn {
+  border: 2px solid black;
+  background-color:gainsboro;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+

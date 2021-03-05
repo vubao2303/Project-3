@@ -19,7 +19,7 @@ function SearchForm() {
     <div>
       <form >
         <div className="mb-3">
-          <label for="searchforYearBook" className="form-label">Search</label>
+          <label htmlFor="searchforYearBook" className="form-label">Search</label>
           <input onChange={(event) => {
             event.preventDefault();
             // console.log("banana")
