@@ -24,7 +24,6 @@ function App() {
         <Route exact path="/search" component={Search} />
         <Route exact path="/create" component={Create} />
         {/* <Route exact path="/" component={Yearbook} /> */}
-
         {/* <Route exact path="/save" component={Saved} />
         <Route exact path="/search" component={Books} /> */}
         {/* <Route component={NoMatch} /> */}

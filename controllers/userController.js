@@ -6,6 +6,7 @@ module.exports = {
     login: function (req, res) {
         console.log(res)
         res.json(req.user);
+        // we need to check here for password if it is there already
 
     },
     signup: function (req, res) {
@@ -35,6 +36,6 @@ module.exports = {
                 username: req.user.username,
                 id: req.user.id
             });
-        }
+        } g
     }
 };
