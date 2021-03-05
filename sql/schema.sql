@@ -22,8 +22,9 @@ CREATE TABLE classes (
 CREATE TABLE students (
        id INT NOT NULL AUTO_INCREMENT,
        name VARCHAR(25),
+       nickname VARCHAR(25),
        hobbies VARCHAR (50),
-       quote VARCHAR (100),
+       quote VARCHAR (300),
        linkedIn VARCHAR(100),
        title VARCHAR (25),
        PRIMARY KEY (id)

@@ -13,7 +13,6 @@ INSERT INTO classes (grade, name)
 -- insert class values
 VALUES ("null", "consoleloggers")
 
-INSERT INTO students (name, hobbies, quote, linkedIn, title)
+INSERT INTO students (name, nickname, hobbies, quote, linkedIn, title)
 -- insert studnets values
-VALUES ("B tram Vu", "yoga", "fake it till you make it", "https://www.linkedin.com/in/b-tram-vu/", "student"),
-("Jasmine Franklin", "painting", "life is a movie and your the star, so give yourself a happy ending", "https://www.linkedin.com/in/jasmine-franklin-8b08ba121/dd", "studnet");
+VALUES ("B tram Vu", "Wasabli", "yoga", "fake it till you make it", "https://www.linkedin.com/in/b-tram-vu/", "student"),
