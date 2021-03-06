@@ -1,14 +1,24 @@
 const db = require("../models");
 var passport = require("../config/passport");
+var bcrypt = require("bcryptjs");
 
 // Defining methods for the user controller
 module.exports = {
     login: function (req, res) {
-        console.log(res)
-        db.User.findOne({ where: req.body })
+        // console.log(res)
+        console.log(req.body.username);
+        db.User.findOne({ where: {username: req.body.username} })
             .then(user => {
                 // send user id back to client
-                res.json(user.id);
+                bcrypt.compare(req.body.password, user.password).then((result) => {
+                    if(result == true){
+                        res.json(user.id);
+                    }
+                    else {
+                        res.send("wrong");
+                    }
+                })
+                // res.json(user.id);
             }).catch(err => {
                 // error
                 console.log(err);
@@ -30,12 +40,11 @@ module.exports = {
     signup: function (req, res) {
         console.log("got to controller");
         db.User.create(req.body)
-        console.log(req.body)
-            .then(function () {
+            .then(() => {
                 res.json(true);
                 // res.redirect(307, "/api/login");
             })
-            .catch(function (err) {
+            .catch( (err) =>  {
                 // res.status(401).json(err);
                 res.json(false);
             });

@@ -10,8 +10,8 @@ function SearchForm() {
     console.log("load")
 
     API.getBooksByYear(searchYear).then((books) => {
-      setBooks(books);
-      console.log(books)
+      setBooks(books.data);
+      console.log(books.data);
     })
       .catch(err => console.log(err));
   }
@@ -32,6 +32,13 @@ function SearchForm() {
           loadYearbook(year);
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
+        {books.map(book => {
+          var href = "/book/" + book.id;
+          return (
+          <a href ={href}>{book.schoolName}, {book.year}</a>
+          )
+        })}
+
     </div>
   )
 
