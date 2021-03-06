@@ -1,16 +1,20 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
 
 
 function ClassForm() {
 
   const [Class, setClass] = useState({});
+  const [books, setBooks] = useState([]);
+  // useEffect
+  useEffect(() => {
+    if (sessionStorage.getItem("userId")){
+      API.getBooksByUser(sessionStorage.getItem("user")).then((books) => {
+        setBooks(books.data);
+      });
+    }
 
-  // // useEffect
-  // // function getClass() {
-  //   setClass(Class)
-
-  // // }
+  }, [])
 
   function createClass(Class) {
     API.saveClass(Class).then(() => {
@@ -39,6 +43,17 @@ function ClassForm() {
           <label htmlFor="class-name" className="form-label">Title/Class Name</label>
           <input onChange={handleChange} name="className" type="text" className="form-control" id="class-name" />
         </div>
+
+
+        <select className="form-select" aria-label="Default select example">
+          <option defaultValue>Select one of your books to add this class to</option>
+          {books.map(book => {
+            return (
+              <option value={book.id}>{book.schoolName}, {book.year}</option>
+            );
+          }
+          )}
+        </select>
 
         {/* Button here  */}
         {/* Save and add another class */}
