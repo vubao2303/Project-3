@@ -5,7 +5,7 @@
 
 import React from "react";
 // import API from Utils
-import { } from 'react-bootstrap';
+import {Carousel, Card } from 'react-bootstrap';
 // create carosel with enough slides for each class member and staff
 
 function FinalPage() {
