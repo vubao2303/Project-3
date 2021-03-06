@@ -4,9 +4,7 @@ var passport = require("../config/passport");
 // Defining methods for the user controller
 module.exports = {
     login: function (req, res) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        console.log(res)
+        // console.log(res)
         db.User.findOne({ where: req.body })
             .then(user => {
                 // send user id back to client
@@ -27,35 +25,16 @@ module.exports = {
         //     // pass in the password for the found user, 
         // }
         // then we can return a message say yes status 200
-=======
-=======
->>>>>>> 4ad3eb0c7aaa272e441ece505fc383020b3dda03
-        // console.log(req.user);
-        // res.json(req.user);
-        // we need to check here for password if it is there already
-        passport.authenticate('local', function (err, user, info) {
-            console.log(user);
-            if (!user) { return res.redirect('/login'); }
-            req.logIn(user, function (err) {
-                if (err) { return next(err); }
-                return res.redirect('/');
-            });
-        })(req, res);
-<<<<<<< HEAD
->>>>>>> 4ad3eb0 (building out user tracking and logging in)
-=======
->>>>>>> 4ad3eb0c7aaa272e441ece505fc383020b3dda03
 
     },
     signup: function (req, res) {
         console.log("got to controller");
         db.User.create(req.body)
-        console.log(req.body)
-            .then(function () {
+            .then(() => {
                 res.json(true);
                 // res.redirect(307, "/api/login");
             })
-            .catch(function (err) {
+            .catch( (err) =>  {
                 // res.status(401).json(err);
                 res.json(false);
             });
