@@ -45,7 +45,12 @@ function ClassForm() {
         </div>
 
 
-        <select className="form-select" aria-label="Default select example">
+        <select className="form-select" aria-label="Default select example" onChange = {
+          (event => {
+            event.preventDefault();
+            setClass({...Class, YearbookId: event.target.value});
+          })
+        }>
           <option defaultValue>Select one of your books to add this class to</option>
           {books.map(book => {
             return (
