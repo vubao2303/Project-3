@@ -69,8 +69,8 @@ function StudentForm() {
 
             {/* title  */}
             <div className="mb-3">
-              <label htmlFor="studentTitle" className="form-label">Title </label>
-              <input onChange={handleSave} name="title" type="text" className="form-control" id="studentTitle" />
+              <label htmlFor="studentTitle" className="form-label">Nickname </label>
+              <input onChange={handleSave} name="nickname" type="text" className="form-control" id="studentTitle" />
             </div>
 
             {/* hobbies */}
