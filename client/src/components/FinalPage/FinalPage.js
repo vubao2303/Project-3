@@ -5,16 +5,6 @@
 
 import React from "react";
 // import API from Utils
-
+import { } from 'react-bootstrap';
 // create carosel with enough slides for each class member and staff
-<div data-slick='{"slidesToShow": 27, "slidesToScroll": 27}'>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
-    <div>Place Holder Student</div>
 
-</div>
