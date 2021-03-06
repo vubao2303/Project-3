@@ -19,7 +19,8 @@ const API = {
     },
     saveStudent: function (classData) {
         return axios.post("/api/classes", classData);
-    }, saveClass: function (classData) {
+    },
+    saveClass: function (classData) {
         return axios.post("/api/classes", classData);
     },
 }
