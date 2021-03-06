@@ -13,8 +13,8 @@ function ClassForm() {
   // // }
 
   function createClass(Class) {
-    API.saveClass(Class).then(res => {
-      console.log("class created")
+    API.saveClass(Class).then(() => {
+      window.location.href = "/student"
     })
   }
 
@@ -48,8 +48,6 @@ function ClassForm() {
         }
         } type="button" className="btn btn-primary">Save and add another class</button>
 
-        {/* Save and go on to add student */}
-        <button type="button" className="btn btn-primary"> Save and go on to add student</button>
 
       </form >
     </div >
