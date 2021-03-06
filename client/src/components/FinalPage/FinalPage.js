@@ -8,6 +8,9 @@ import React from "react";
 import { } from 'react-bootstrap';
 // create carosel with enough slides for each class member and staff
 
+function FinalPage() {
+
+return(
 <Carousel>
     <Carousel.Item>
         {/* build student card */}
@@ -24,5 +27,12 @@ import { } from 'react-bootstrap';
 
     </Carousel.Item>
 </Carousel>
+
+)
+
+}
+
+export default FinalPage;
+
 
 
