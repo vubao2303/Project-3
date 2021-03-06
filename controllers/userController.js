@@ -15,12 +15,7 @@ module.exports = {
                 // send a false statement for client to handle error
                 res.send(false);
             })
-
-
-
-
         // res.json(req.user);
-
         // // req.body.user maybe 
         // // user is validate and compare your password 
         // // we need to check here for password if it is there already
@@ -30,8 +25,6 @@ module.exports = {
         //     // pass in the password for the found user, 
         // }
         // then we can return a message say yes status 200
-
-
 
     },
     signup: function (req, res) {

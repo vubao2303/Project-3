@@ -11,7 +11,7 @@ router.use("/books", bookRoutes);
 router.use("/classes", classRoutes);
 
 // Student Routes
-router.use("/students", studentRoutes);
+router.use("/student", studentRoutes);
 
 // User Routes
 router.use("/users", userRoutes);

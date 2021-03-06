@@ -17,8 +17,8 @@ const API = {
     getBooksByYear: function (year) {
         return axios.get("/api/books/year/" + year);
     },
-    saveStudent: function (classData) {
-        return axios.post("/api/student", classData);
+    saveStudent: function (studentData) {
+        return axios.post("/api/student", studentData);
     },
     saveClass: function (classData) {
         return axios.post("/api/classes", classData);

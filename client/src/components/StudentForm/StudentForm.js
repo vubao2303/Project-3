@@ -8,11 +8,11 @@ function StudentForm() {
 
   // ok this is redundant but I don't know a better way 
 
-  const [StName, setStName] = useState("");
-  const [Hobbies, setHobbies] = useState("");
-  const [LinkedIn, setLinked] = useState("");
-  const [Quote, setQuote] = useState("");
-  const [Title, setTittle] = useState("")
+  // const [StName, setStName] = useState("");
+  // const [Hobbies, setHobbies] = useState("");
+  // const [LinkedIn, setLinked] = useState("");
+  // const [Quote, setQuote] = useState("");
+  // const [Title, setTittle] = useState("")
 
   // This will show all the students in the database 
   function loadStudent() {
@@ -22,7 +22,6 @@ function StudentForm() {
 
   function addStudent(Student) {
     API.saveStudent(Student).then(() => {
-
       console.log("yes you added a student")
       window.location.href = "/student"
     })

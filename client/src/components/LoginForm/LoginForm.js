@@ -33,7 +33,7 @@ function LoginForm() {
             }
             else {
                 console.log("there is no account");
-                alert("Check again");
+                alert("Check again, no such account");
             }
         });
     }
