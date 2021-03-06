@@ -5,13 +5,39 @@ var passport = require("../config/passport");
 module.exports = {
     login: function (req, res) {
         console.log(res)
-        res.json(req.user);
-        // we need to check here for password if it is there already
+        db.User.findOne({ where: req.body })
+            .then(user => {
+                // send user id back to client
+                res.json(user.id);
+            }).catch(err => {
+                // error
+                console.log(err);
+                // send a false statement for client to handle error
+                res.send(false);
+            })
+
+
+
+
+        // res.json(req.user);
+
+        // // req.body.user maybe 
+        // // user is validate and compare your password 
+        // // we need to check here for password if it is there already
+        // // another if user call to database (req.user. username) 
+        // if (req.user.password) {
+        //     db.User.validPassword
+        //     // pass in the password for the found user, 
+        // }
+        // then we can return a message say yes status 200
+
+
 
     },
     signup: function (req, res) {
         console.log("got to controller");
         db.User.create(req.body)
+        console.log(req.body)
             .then(function () {
                 res.json(true);
                 // res.redirect(307, "/api/login");

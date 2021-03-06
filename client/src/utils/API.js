@@ -6,7 +6,7 @@ const API = {
     },
     login: function (userData) {
         console.log("i login")
-        return axios.post("/api/users/login", userData);
+        return axios.put("/api/users/login", userData);
     },
     getUserData: function () {
         return axios.get("/api/users/user_data");
@@ -18,7 +18,7 @@ const API = {
         return axios.get("/api/books/year/" + year);
     },
     saveStudent: function (classData) {
-        return axios.post("/api/classes", classData);
+        return axios.post("/api/student", classData);
     },
     saveClass: function (classData) {
         return axios.post("/api/classes", classData);

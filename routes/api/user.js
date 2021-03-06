@@ -5,7 +5,9 @@ var passport = require("../../config/passport");
 // Matches with "/api/users/login"
 router
     .route("/login")
-    .post(passport.authenticate("local"), userController.login);
+    // .post(passport.authenticate("local"), userController.login)
+    // b trying
+    .put(userController.login)
 
 
 // Matches with "/api/users/signup"

@@ -20,8 +20,8 @@ function StudentForm() {
 
 
 
-  function addStudent(Students) {
-    API.saveStudent(Student).then(res => {
+  function addStudent(Student) {
+    API.saveStudent(Student).then(() => {
 
       console.log("yes you added a student")
       window.location.href = "/student"
@@ -44,32 +44,32 @@ function StudentForm() {
             {/* student Name */}
             <div className="mb-3">
               <label htmlFor="studentName" className="form-label">Name</label>
-              <input onChange={handleSave} type="text" className="form-control" id="studentName" />
+              <input onChange={handleSave} name="name" type="text" className="form-control" id="studentName" />
             </div>
 
             {/* title  */}
             <div className="mb-3">
               <label htmlFor="studentTitle" className="form-label">Title </label>
-              <input onChange={handleSave} type="text" className="form-control" id="studentTitle" />
+              <input onChange={handleSave} name="title" type="text" className="form-control" id="studentTitle" />
             </div>
 
             {/* hobbies */}
             <div className="mb-3">
               <label htmlFor="studentHobbies" className="form-label">Hobbies</label>
-              <input onChange={handleSave} type="text" className="form-control" id="studentHobbies" />
+              <input onChange={handleSave} name="hobbies" type="text" className="form-control" id="studentHobbies" />
             </div>
 
             {/* quote */}
             <div className="mb-3">
               <label htmlFor="studenQuote" className="form-label">Quote</label>
-              <input
+              <input onChange={handleSave} name="quote"
                 type="text" className="form-control" id="studenQuote" />
             </div>
 
             {/* linkedIn */}
             <label htmlFor="basic-url" className="form-label">LinkedIn </label>
             <div className="input-group mb-3">
-              <input type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
+              <input onChange={handleSave} name="linkedIn" type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
             </div>
 
             <button
