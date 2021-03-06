@@ -4,7 +4,7 @@ var passport = require("../config/passport");
 // Defining methods for the user controller
 module.exports = {
     login: function (req, res) {
-        console.log(res)
+        // console.log(res)
         db.User.findOne({ where: req.body })
             .then(user => {
                 // send user id back to client
@@ -30,12 +30,11 @@ module.exports = {
     signup: function (req, res) {
         console.log("got to controller");
         db.User.create(req.body)
-        console.log(req.body)
-            .then(function () {
+            .then(() => {
                 res.json(true);
                 // res.redirect(307, "/api/login");
             })
-            .catch(function (err) {
+            .catch( (err) =>  {
                 // res.status(401).json(err);
                 res.json(false);
             });
