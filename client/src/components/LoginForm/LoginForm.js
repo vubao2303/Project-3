@@ -9,7 +9,7 @@ function LoginForm() {
     function signup(userName, passWord) {
         console.log("triggeredsignup");
         var userData = { username: userName, password: passWord };
-        API.signup(userData).then(res => {
+        API.signup(userData).then((res) => {
             console.log(res);
             if (res.data === false) {
                 console.log("taken");
