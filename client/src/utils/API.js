@@ -23,6 +23,9 @@ const API = {
     saveClass: function (classData) {
         return axios.post("/api/classes", classData);
     },
+    getBooksByUser: function (user) {
+        return axios.get("/api/books/user/" + user);
+    }
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API
@@ -50,7 +53,7 @@ export default API;
 //     updateStudent: function (id, classData) {
 //         return axios.post("/api/classes" + id, classData);
 //     },
-//    c
+//
 //     
 //     logout: function (){
 //         return axios.get("/api/users/logout");
