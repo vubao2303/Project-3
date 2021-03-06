@@ -8,7 +8,7 @@ function ClassForm() {
   const [books, setBooks] = useState([]);
   // useEffect
   useEffect(() => {
-    if (sessionStorage.getItem("userId")){
+    if (sessionStorage.getItem("userId")) {
       API.getBooksByUser(sessionStorage.getItem("userId")).then((books) => {
         setBooks(books.data);
       });
@@ -17,9 +17,14 @@ function ClassForm() {
   }, [])
 
   function createClass(Class) {
-    API.saveClass(Class).then(() => {
-      window.location.href = "/student"
-    })
+    if (Class.className && Class.className !== "" && Class.YearbookId) {
+      API.saveClass(Class).then(() => {
+        window.location.href = "/student"
+      });
+    }
+    else {
+      alert("You need to choose a yearbook and a name to add a class!");
+    }
   }
 
   function handleChange(event) {
@@ -45,13 +50,13 @@ function ClassForm() {
         </div>
 
 
-        <select className="form-select" aria-label="Default select example" onChange = {
+        <select className="form-select" aria-label="Default select example" onChange={
           (event => {
             event.preventDefault();
-            setClass({...Class, YearbookId: event.target.value});
+            setClass({ ...Class, YearbookId: event.target.value });
           })
         }>
-          <option defaultValue>Select one of your books to add this class to</option>
+          <option value = {false} defaultValue>Select one of your books to add this class to</option>
           {books.map(book => {
             return (
               <option value={book.id}>{book.schoolName}, {book.year}</option>
