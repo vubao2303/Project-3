@@ -1,16 +1,18 @@
 // import React from "react"
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API";
 
 function StudentForm() {
 
+  const [Student, setStudent] = useState({});
+
   // ok this is redundant but I don't know a better way 
 
-  const [StName, setStName] = useState("");
-  const [Hobbies, setHobbies] = useState("");
-  const [LinkedIn, setLinked] = useState("");
-  const [Quote, setQuote] = useState("");
-  const [Title, setTittle] = useState("")
+  // const [StName, setStName] = useState("");
+  // const [Hobbies, setHobbies] = useState("");
+  // const [LinkedIn, setLinked] = useState("");
+  // const [Quote, setQuote] = useState("");
+  // const [Title, setTittle] = useState("")
 
   // This will show all the students in the database 
   function loadStudent() {
@@ -18,81 +20,77 @@ function StudentForm() {
 
 
 
-  function addStudent(stName, hobbies, linked, Quote) {
-    var studentData = {
-      stName: stName,
-      hobbies: hobbies,
-      LinkedIn: linked,
-      Quote: Quote
-    };
-    API.saveStudent(studentData).then(res => {
-      console.log(studentData)
-      console.log("yes you added")
+  function addStudent(Student) {
+    API.saveStudent(Student).then(() => {
+      console.log("yes you added a student")
+      window.location.href = "/student"
     })
+  }
+
+  function handleSave(e) {
+    setStudent({ ...Student, [e.target.name]: e.target.value })
   }
 
 
 
   return (
-    <div clasName="container">
-      <form  >
-        {/* student Name */}
-        <div className="mb-3">
-          <label htmlFor="studentName" className="form-label">Name</label>
-          <input onChange={e => {
-            e.preventDefault();
-            setStName(e.target.value);
-          }} type="text" className="form-control" id="studentName" />
+    <div className="container">
+
+      <div className="row">
+        <div className="col-md-3"></div>
+        <div className="col-md-6">
+          <form  >
+            {/* student Name */}
+            <div className="mb-3">
+              <label htmlFor="studentName" className="form-label">Name</label>
+              <input onChange={handleSave} name="name" type="text" className="form-control" id="studentName" />
+            </div>
+
+            {/* title  */}
+            <div className="mb-3">
+              <label htmlFor="studentTitle" className="form-label">Title </label>
+              <input onChange={handleSave} name="title" type="text" className="form-control" id="studentTitle" />
+            </div>
+
+            {/* hobbies */}
+            <div className="mb-3">
+              <label htmlFor="studentHobbies" className="form-label">Hobbies</label>
+              <input onChange={handleSave} name="hobbies" type="text" className="form-control" id="studentHobbies" />
+            </div>
+
+            {/* quote */}
+            <div className="mb-3">
+              <label htmlFor="studenQuote" className="form-label">Quote</label>
+              <input onChange={handleSave} name="quote"
+                type="text" className="form-control" id="studenQuote" />
+            </div>
+
+            {/* linkedIn */}
+            <label htmlFor="basic-url" className="form-label">LinkedIn </label>
+            <div className="input-group mb-3">
+              <input onChange={handleSave} name="linkedIn" type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
+            </div>
+
+            <button
+              type="submit" className="btn btn-primary" onClick={(event) => {
+                event.preventDefault();
+                addStudent(Student);
+              }
+              }
+            >Summit and Add more student</button>
+
+            <button
+            // type="submit" className="btn btn-primary" onClick={(event) => {
+            //             event.preventDefault();
+            //             signup(name, password);
+            //         }
+            //         }
+            >Finished </button>
+
+          </form>
         </div>
 
-        {/* title  */}
-        <div className="mb-3">
-          <label htmlFor="studentTitle" className="form-label">Title </label>
-          <input onChange={e => {
-            e.preventDefault();
-            setTittle(e.target.value);
-          }} type="text" className="form-control" id="studentTitle" />
-        </div>
-
-        {/* hobbies */}
-        <div className="mb-3">
-          <label htmlFor="studentHobbies" className="form-label">Hobbies</label>
-          <input type="text" className="form-control" id="studentHobbies" />
-        </div>
-
-        {/* quote */}
-        <div className="mb-3">
-          <label htmlFor="studenQuote" className="form-label">Quote</label>
-          <input onChange={(event) => {
-            event.preventDefault();
-            // console.log("banana")
-            setQuote(event.target.value);
-          }} type="text" className="form-control" id="studenQuote" />
-        </div>
-
-        {/* linkedIn */}
-        <label htmlFor="basic-url" className="form-label">LinkedIn </label>
-        <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
-        </div>
-
-        <button
-          type="submit" className="btn btn-primary" onClick={(event) => {
-            event.preventDefault();
-            addStudent(StName, Hobbies, Quote, LinkedIn, Title);
-          }
-          }
-        >Summit and Add more student</button>
-
-        <button
-        // type="submit" className="btn btn-primary" onClick={(event) => {
-        //             event.preventDefault();
-        //             signup(name, password);
-        //         }
-        //         }
-        >Finished </button>
-
-      </form>
+      </div>
     </div>
   )
 }
@@ -117,3 +115,16 @@ export default StudentForm;
   </div>
   <button type="submit" className="btn btn-primary">Submit</button>
 </form> */}
+
+// function addStudent(Students) {
+//   var studentData = {
+//     stName: stName,
+//     hobbies: hobbies,
+//     LinkedIn: linked,
+//     Quote: Quote
+//   };
+//   API.saveStudent(studentData).then(res => {
+//     console.log(studentData)
+//     console.log("yes you added")
+//   })
+// }

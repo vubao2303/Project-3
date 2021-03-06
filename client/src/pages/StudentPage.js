@@ -3,7 +3,14 @@ import StudentForm from '../components/StudentForm/StudentForm';
 
 function SForm() {
   return (
-    <StudentForm />
+    <div>
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-8"></div>
+
+        <StudentForm />
+      </div>
+    </div>
   )
 }
 export default SForm
