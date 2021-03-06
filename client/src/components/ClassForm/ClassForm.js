@@ -17,7 +17,7 @@ function ClassForm() {
   }, [])
 
   function createClass(Class) {
-    if (Class.className && Class.className !== "" && Class.YearbookId) {
+    if (Class.className && Class.className !== "" && Class.YearbookId && Class.YearbookId != -1) {
       API.saveClass(Class).then(() => {
         window.location.href = "/student"
       });
@@ -31,6 +31,7 @@ function ClassForm() {
     console.log(event)
     console.log(event.target.value)
     setClass({ ...Class, [event.target.name]: event.target.value })
+    console.log(Class);
 
   }
 
@@ -56,7 +57,7 @@ function ClassForm() {
             setClass({ ...Class, YearbookId: event.target.value });
           })
         }>
-          <option value = {false} defaultValue>Select one of your books to add this class to</option>
+          <option value = {-1} defaultValue>Select one of your books to add this class to</option>
           {books.map(book => {
             return (
               <option value={book.id}>{book.schoolName}, {book.year}</option>
