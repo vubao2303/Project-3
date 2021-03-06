@@ -9,7 +9,7 @@ function ClassForm() {
   // useEffect
   useEffect(() => {
     if (sessionStorage.getItem("userId")){
-      API.getBooksByUser(sessionStorage.getItem("user")).then((books) => {
+      API.getBooksByUser(sessionStorage.getItem("userId")).then((books) => {
         setBooks(books.data);
       });
     }
