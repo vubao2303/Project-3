@@ -1,11 +1,8 @@
 // create carosel compoenent using new javascript library slick
-// populate student details onto carosel displaying yearbook data 
-// add slick css script and link
+// insert card component inside of carosel
 // install packages
-// format pages
-// import data from database into carosel
-// create index of students
-// using slick add method add a slide for each index
+// import data from database into card using props
+
 import React from "react";
 // import API from Utils
 
