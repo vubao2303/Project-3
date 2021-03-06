@@ -25,8 +25,10 @@ function StudentForm() {
   useEffect(() => {
     if (book !== -1) {
       API.getClassByBook(book).then((classes) => {
-        setClass(...Class, classes.data);
-        console.log(Class);
+        if (classes.data[0]) {
+          setClass(classes.data);
+          console.log(Class);
+        }
       });
     }
 
