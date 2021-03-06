@@ -10,7 +10,7 @@ import {Carousel, Card } from 'react-bootstrap';
 
 function FinalPage() {
 
-return(
+return (
 <Carousel>
     <Carousel.Item>
         {/* build student card */}
