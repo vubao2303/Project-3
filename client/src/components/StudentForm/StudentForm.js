@@ -33,21 +33,19 @@ function StudentForm() {
     }
 
   }, [book])
-  // ok this is redundant but I don't know a better way 
-
-  // const [StName, setStName] = useState("");
-  // const [Hobbies, setHobbies] = useState("");
-  // const [LinkedIn, setLinked] = useState("");
-  // const [Quote, setQuote] = useState("");
-  // const [Title, setTittle] = useState("")
-
-  // This will show all the students in the database 
 
   function addStudent(Student) {
-    API.saveStudent(Student).then(() => {
-      console.log("yes you added a student")
-      window.location.href = "/student"
-    })
+    // make sure required fields are filled
+    console.log(Student);
+    if (Student.name !== "" && Student.ClassId && Student.ClassId !== -1) {
+      API.saveStudent(Student).then(() => {
+        console.log("yes you added a student")
+        window.location.href = "/student"
+      })
+    }
+    else {
+      alert("You are missing required fields! (Name and class are required)");
+    }
   }
 
   function handleSave(e) {
@@ -116,7 +114,7 @@ function StudentForm() {
                 setStudent({ ...Student, ClassId: event.target.value });
               })
             }>
-              <option value={-1} defaultValue>Select one of your books to add this class to</option>
+              <option value={-1} defaultValue>Select one of the classes in your selected yearbook to add this student to</option>
               {
                 Class.map(littleClass => {
                   return (
