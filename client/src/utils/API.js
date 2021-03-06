@@ -25,6 +25,9 @@ const API = {
     },
     getBooksByUser: function (user) {
         return axios.get("/api/books/user/" + user);
+    },
+        getClassByBook: function (book) {
+        return axios.get("/api/classes/book/" + book);
     }
 }
 export default API;
