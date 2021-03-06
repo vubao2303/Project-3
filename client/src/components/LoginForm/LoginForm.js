@@ -27,6 +27,7 @@ function LoginForm() {
         var userData = { username: userName, password: passWord };
         API.login(userData).then((res) => {
             console.log(res);
+<<<<<<< HEAD
             if (res.data) {
                 console.log("you are logged in");
                 alert("Loggin");
@@ -36,6 +37,10 @@ function LoginForm() {
                 alert("Check again, no such account");
             }
         });
+=======
+            console.log("im baaaaaaaaaack");
+        })
+>>>>>>> 4ad3eb0c7aaa272e441ece505fc383020b3dda03
     }
 
     // function takeHome() {

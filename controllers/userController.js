@@ -5,6 +5,7 @@ var passport = require("../config/passport");
 module.exports = {
     login: function (req, res) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log(res)
         db.User.findOne({ where: req.body })
             .then(user => {
@@ -27,6 +28,8 @@ module.exports = {
         // }
         // then we can return a message say yes status 200
 =======
+=======
+>>>>>>> 4ad3eb0c7aaa272e441ece505fc383020b3dda03
         // console.log(req.user);
         // res.json(req.user);
         // we need to check here for password if it is there already
@@ -38,7 +41,10 @@ module.exports = {
                 return res.redirect('/');
             });
         })(req, res);
+<<<<<<< HEAD
 >>>>>>> 4ad3eb0 (building out user tracking and logging in)
+=======
+>>>>>>> 4ad3eb0c7aaa272e441ece505fc383020b3dda03
 
     },
     signup: function (req, res) {
