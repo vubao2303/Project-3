@@ -1,14 +1,24 @@
 const db = require("../models");
 var passport = require("../config/passport");
+var bcrypt = require("bcryptjs");
 
 // Defining methods for the user controller
 module.exports = {
     login: function (req, res) {
         // console.log(res)
-        db.User.findOne({ where: req.body })
+        console.log(req.body.username);
+        db.User.findOne({ where: {username: req.body.username} })
             .then(user => {
                 // send user id back to client
-                res.json(user.id);
+                bcrypt.compare(req.body.password, user.password).then((result) => {
+                    if(result == true){
+                        res.json(user.id);
+                    }
+                    else {
+                        res.send("wrong");
+                    }
+                })
+                // res.json(user.id);
             }).catch(err => {
                 // error
                 console.log(err);

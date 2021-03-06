@@ -1,3 +1,4 @@
+import { session } from "passport";
 import React, { useState } from "react";
 import API from "../../utils/API";
 
@@ -27,9 +28,13 @@ function LoginForm() {
         var userData = { username: userName, password: passWord };
         API.login(userData).then((res) => {
             console.log(res);
-            if (res.data) {
+            if (res.data && res.data !== "wrong") {
                 console.log("you are logged in");
-                alert("Loggin");
+                alert("Login");
+                sessionStorage.setItem("userId", res.data);
+            }
+            else if (res.data === "wrong"){
+                alert("Wrong password!");
             }
             else {
                 console.log("there is no account");
