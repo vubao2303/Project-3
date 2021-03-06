@@ -8,3 +8,8 @@ import React from "react";
 import { } from 'react-bootstrap';
 // create carosel with enough slides for each class member and staff
 
+<Carousel>
+    <Carousel.Item>
+        
+    </Carousel.Item>
+</Carousel>
