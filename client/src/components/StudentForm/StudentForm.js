@@ -34,7 +34,7 @@ function StudentForm() {
 
 
   return (
-    <div clasName="container">
+    <div className="container">
       <form  >
         {/* student Name */}
         <div className="mb-3">

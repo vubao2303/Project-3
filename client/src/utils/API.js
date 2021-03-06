@@ -19,7 +19,9 @@ const API = {
     },
     saveStudent: function (classData) {
         return axios.post("/api/classes", classData);
-    }
+    }, saveClass: function (classData) {
+        return axios.post("/api/classes", classData);
+    },
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API
@@ -31,9 +33,7 @@ export default API;
 //     getClassByBook: function (book) {
 //         return axios.get("/api/classes/book/" + book);
 //     },
-//     saveClass: function (classData) {
-//         return axios.post("/api/classes", classData);
-//     },
+//     
 //     updateClass: function (id, classData) {
 //         return axios.post("/api/classes" + id, classData);
 //     },
@@ -49,12 +49,8 @@ export default API;
 //     updateStudent: function (id, classData) {
 //         return axios.post("/api/classes" + id, classData);
 //     },
-//     login: function (userData) {
-//         return axios.post("/api/users/login", userData);
-//     },
-//     signup: function (userData) {
-//         return axios.post("/api/users/signup", userData);
-//     },
+//    c
+//     
 //     logout: function (){
 //         return axios.get("/api/users/logout");
 //     },

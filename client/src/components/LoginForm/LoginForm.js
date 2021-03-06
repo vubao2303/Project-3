@@ -38,9 +38,9 @@ function LoginForm() {
         });
     }
 
-    function takeHome() {
+    // function takeHome() {
 
-    }
+    // }
 
     return (
         <div>

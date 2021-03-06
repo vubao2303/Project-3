@@ -9,6 +9,7 @@ import Search from "./pages/Search"
 import Create from "./pages/Create"
 import Main from "./pages/Main"
 import Student from "./pages/StudentPage"
+import Class from "./pages/Class"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/search" component={Search} />
         <Route exact path="/create" component={Create} />
         <Route exact path="/student" component={Student} />
+        <Route exact path="/class" component={Class} />
 
         {/* <Route exact path="/" component={Yearbook} /> */}
         {/* <Route exact path="/save" component={Saved} />
