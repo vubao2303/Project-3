@@ -1,3 +1,11 @@
+// use a new library glimmer lets you build javascript components
+// create components using glimmer
+// 1. install ember
+// 2. install glimmer app
+// 3. create glimmer component
+// 4. insert existing code 
+
+
 import React from "react";
 import "./style.css";
 
