@@ -4,8 +4,10 @@
 // install packages
 // format pages
 // import data from database into carosel
-// add on swipe event that creates a new slide with student data
+// create index of students
+// using slick add method add a slide for each index
 import React from "react";
+// import API from Utils
 
 // create carosel with enough slides for each class member and staff
 <div data-slick='{"slidesToShow": 27, "slidesToScroll": 27}'>
