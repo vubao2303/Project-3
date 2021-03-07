@@ -23,8 +23,8 @@ function CreateForm() {
     return (
         <div>
             <div className="row">
-                <div className="col-md-2"></div>
-                <div className="col-md-8">
+                <div className="col-md-4"></div>
+                <div className="col-md-5">
                     <div className="row mb-3">
                         <label htmlFor="colFormLabelSm" className="col-sm-2 col-form-label col-form-label-sm">School Name</label>
                         <div className="col-sm-10" />
