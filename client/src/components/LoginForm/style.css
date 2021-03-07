@@ -1,0 +1,22 @@
+form {
+  background-color: rgb(167, 197, 161);
+  border-radius: 50px;
+}
+input {
+  padding: 200px;
+  
+}
+.container {
+  margin: 20px;
+  
+}
+.meform {
+  padding: 20px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* button {
+  border-radius: 200px;
+} */

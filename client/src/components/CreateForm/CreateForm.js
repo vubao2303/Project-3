@@ -21,12 +21,13 @@ function CreateForm() {
     }
 
     return (
-        <div>
-            <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-5">
+        <div className="container"> <div className="row">
+            <div className="col-md-4"></div>
+            <div className="col-md-5">
+                <form className="meform">
+                    <h1> Create Yearbook </h1>
                     <div className="row mb-3">
-                        <label htmlFor="colFormLabelSm" className="col-sm-2 col-form-label col-form-label-sm">School Name</label>
+                        <label htmlFor="colFormLabelSm" className="col-sm-5 col-form-label col-form-label-sm">School Name</label>
                         <div className="col-sm-10" />
                         <input onChange={(event) => {
                             event.preventDefault();
@@ -50,11 +51,49 @@ function CreateForm() {
                             createYearbook(name, year);
                         }} type="submit" className="btn btn-primary"> Create</button>
                     </div>
-                </div>
+                </form>
             </div>
+        </div>
         </div>
 
     )
 }
 
 export default CreateForm;
+
+// B trying 
+{/* <form>
+    <fieldset disabled>
+        <div className="row mb-3">
+            <label htmlFor="colFormLabelSm" className="col-sm-2 col-form-label col-form-label-sm">School Name</label>
+            <div className="col-sm-10" />
+            <input onChange={(event) => {
+                event.preventDefault();
+                // console.log("banana")
+                setName(event.target.value);
+            }} type="schoolName" className="form-control form-control-sm" id="colFormLabelSm" placeholder="School Name" />
+        </div>
+
+
+
+        <div className="row mb-3">
+            <label htmlFor="colFormLabelSm" className="col-sm-2 col-form-label col-form-label-sm">Year</label>
+            <div className="col-sm-10" />
+            <input onChange={(event) => {
+                event.preventDefault();
+                // console.log("banana")
+                setYear(event.target.value);
+            }} type="year" className="form-control form-control-sm" id="colFormLabelSm" placeholder="Year" />
+        </div>
+
+
+        <div className="col-auto">
+            <button onClick={(event) => {
+                event.preventDefault();
+                createYearbook(name, year);
+            }} type="submit" className="btn btn-primary"> Create</button>
+        </div>
+
+        <button type="submit" className="btn btn-primary">Submit</button>
+    </fieldset>
+</form > */}
