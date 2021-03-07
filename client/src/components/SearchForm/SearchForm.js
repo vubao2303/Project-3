@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import API from "../../utils/API";
 
 function SearchForm() {
@@ -23,30 +23,35 @@ function SearchForm() {
   }
   return (
     <div>
-      <form >
-        <div className="mb-3">
-          <label htmlFor="searchforYearBook" className="form-label">Search</label>
-          <input onChange={(event) => {
-            event.preventDefault();
-            // console.log("banana")
-            setYear(event.target.value);
-          }} placeholer="search for your yearbook here" className="form-control" id="searchForYB" />
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-8">
+
+          <form >
+            <div className="mb-3">
+              <label htmlFor="searchforYearBook" className="form-label">Search</label>
+              <input onChange={(event) => {
+                event.preventDefault();
+                // console.log("banana")
+                setYear(event.target.value);
+              }} placeholer="search for your yearbook here" className="form-control" id="searchForYB" />
+            </div>
+
+            <button onClick={(event) => {
+              event.preventDefault();
+              loadYearbook(year);
+              document.getElementById('searchForYB').value = '';
+            }} type="submit" className="btn btn-primary">Submit</button>
+          </form>
+          {books.map((book, id) => {
+            var href = "/yearbook/" + book.id;
+            return (
+              <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
+            )
+          })}
+
         </div>
-
-        <button onClick={(event) => {
-          event.preventDefault();
-          loadYearbook(year);
-          document.getElementById('searchForYB').value = '';
-        }} type="submit" className="btn btn-primary">Submit</button>
-      </form>
-      {books.map((book, id) => {
-        var href = "/yearbook/" + book.id;
-        return (
-          <button><a key={id} href={href}>{book.schoolName}, {book.year}</a></button>
-        )
-      })}
-
-    </div>
+      </div></div>
   )
 
 }

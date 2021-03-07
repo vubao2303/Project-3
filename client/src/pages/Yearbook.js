@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
-import FrontResult from '../components/FrontResult/FrontResult';
+// import FrontResult from '../components/FrontResult/FrontResult';
 import StudentCard from "../components/StudentCard/StudentCard";
 import API from "../utils/API";
 function Yearbook() {
