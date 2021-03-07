@@ -36,6 +36,7 @@ function SearchForm() {
         <button onClick={(event) => {
           event.preventDefault();
           loadYearbook(year);
+          document.getElementById('searchForYB').value = '';
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
         {books.map((book, id) => {
