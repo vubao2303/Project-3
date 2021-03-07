@@ -1,31 +1,57 @@
 // create page that displays classes within the selected year book
 // When clicked navigates to students within the selected class
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom";
+// import FrontResult from '../components/FrontResult/FrontResult';
+import StudentCard from "../StudentCard/StudentCard";
 import API from "../../utils/API";
 // import "./style.css";
 
 function DisplayClass() {
-
+  let locationObject = useLocation();
+  let location = locationObject.pathname[locationObject.pathname.length - 1];
+  const [student, setStudent] = useState([]);
   const [Class, setClass] = useState([]);
-  const [books, setBook] = useState([]);
-// add search by name
+  const [book, setBook] = useState([]);
+  // add search by name
 
-  React.useEffect(() => {
-    if (books === "") {
-      setBook();
+  useEffect(() => {
+    setBook(location);
+  }, [])
+
+  // use effect changes when book changes running the function sets the new state of book 
+  // class changes with book changes
+  // 
+  useEffect(() => {
+    if (book) {
+      API.getClassByBook(book).then((classes) => {
+        if (classes.data) { setClass([...classes.data]); }
+      });
     }
-  }, [books])
+  }, [book])
 
-  function loadClasses(searchBooks) {
-    console.log("loadClasses")
+  // student changes when class
+  useEffect(() => {
+    if (Class[0]) {
+      Class.map((miniClass) => {
+        API.getStudentByClass(String(miniClass.id)).then((students) => {
+          setStudent(student => student.concat(students.data));
+        })
+      }
+      )
+    }
+  }, [Class])
 
-    API.getClassByBook(searchBooks).then((Class) => {
-      setClass(Class.data);
-      console.log(Class.data);
-    })
-      .catch(err => console.log(err));
-  }
+
+  // function loadClasses(searchBooks) {
+  //   console.log("loadClasses")
+
+  //   API.getClassByBook(searchBooks).then((Class) => {
+  //     setClass(Class.data);
+  //     console.log(Class.data);
+  //   })
+  //     .catch(err => console.log(err));
+  // }
   return (
     <div>
       <div className="row">
