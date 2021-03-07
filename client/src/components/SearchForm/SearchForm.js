@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
 
 function SearchForm() {
 
   const [books, setBooks] = useState([]);
-  const [year, setYear] = useState("");
+  const [year, setYear] = useState("-50");
+
+  React.useEffect(() => {
+    if (year === "") {
+      setYear("-50");
+    }
+  }, [year])
 
   function loadYearbook(searchYear) {
     console.log("load")
