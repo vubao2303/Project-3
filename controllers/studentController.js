@@ -13,7 +13,8 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findByClass: function (req, res) {
-        db.Student.findAll({ where: { ClassId: req.params.book } })
+        console.log('trollin');
+        db.Student.findAll({ where: { ClassId: req.params.class } })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
