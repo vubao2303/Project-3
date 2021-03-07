@@ -1,6 +1,7 @@
-import { session } from "passport";
+// import { session } from "passport";
 import React, { useState } from "react";
 import API from "../../utils/API";
+import "./style.css";
 
 function LoginForm() {
 
@@ -18,6 +19,7 @@ function LoginForm() {
             }
             else {
                 console.log("not taken");
+                window.location.replace("/create");
                 alert("Account created!");
             }
         });
@@ -29,11 +31,13 @@ function LoginForm() {
         API.login(userData).then((res) => {
             console.log(res);
             if (res.data && res.data !== "wrong") {
+                window.location.replace("/create");
+                <a href="/create">Login</a>
                 console.log("you are logged in");
                 alert("Login");
                 sessionStorage.setItem("userId", res.data);
             }
-            else if (res.data === "wrong"){
+            else if (res.data === "wrong") {
                 alert("Wrong password!");
             }
             else {
@@ -48,37 +52,45 @@ function LoginForm() {
     // }
 
     return (
-        <div>
-            <form >
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(event) => {
-                        event.preventDefault();
-                        // console.log("banana")
-                        setName(event.target.value);
-                    }} />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" onChange={(event) => {
-                        event.preventDefault();
-                        // console.log("banana")
-                        setPassword(event.target.value);
-                    }} />
-                </div>
+        <div className="container"> <div className="row">
+            <div className="col-md-4"></div>
+            <div className="col-md-5">
+                <form className="meform">
+                    <h1> Login </h1>
+                    <div className="md-5">
+                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <input placeholder="Email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(event) => {
+                            event.preventDefault();
+                            // console.log("banana")
+                            setName(event.target.value);
+                        }} />
+                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div className="mb-3">
+                        <label for="exampleInputPassword1" className="form-label">Password</label>
+                        <input placeholder="Password" type="password" className="form-control" id="exampleInputPassword1" onChange={(event) => {
+                            event.preventDefault();
+                            // console.log("banana")
+                            setPassword(event.target.value);
+                        }} />
+                    </div>
 
-                <button type="submit" className="btn btn-primary" onClick={(event) => {
-                    event.preventDefault();
-                    login(name, password);
-                }
-                }>Login</button>
-                <button type="submit" className="btn btn-primary" onClick={(event) => {
-                    event.preventDefault();
-                    signup(name, password);
-                }
-                }>Signup</button>
-            </form>
+                    <button type="submit" className="btn btn-primary" onClick={(event) => {
+                        event.preventDefault();
+                        login(name, password);
+                    }
+                    }><a href="/create">Login</a></button>
+
+
+
+                    <button type="submit" className="btn btn-primary" onClick={(event) => {
+                        event.preventDefault();
+                        signup(name, password);
+                    }
+                    }>Signup</button>
+                </form>
+            </div>
+        </div>
         </div>
     )
 

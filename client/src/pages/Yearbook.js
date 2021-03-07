@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
-import FrontResult from '../components/FrontResult/FrontResult';
+// import FrontResult from '../components/FrontResult/FrontResult';
 import StudentCard from "../components/StudentCard/StudentCard";
 import API from "../utils/API";
 function Yearbook() {
@@ -14,6 +14,9 @@ function Yearbook() {
     setBook(location);
   }, [])
 
+  // use effect changes when book changes running the function sets the new state of book 
+  // class changes with book changes
+  // 
   useEffect(() => {
     if (book) {
       API.getClassByBook(book).then((classes) => {
@@ -21,7 +24,8 @@ function Yearbook() {
       });
     }
   }, [book])
-
+ 
+  // student changes when class
   useEffect(() => {
     if (Class[0]) {
       Class.map((miniClass) => {
