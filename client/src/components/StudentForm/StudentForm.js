@@ -130,14 +130,16 @@ function StudentForm() {
                 addStudent(Student);
               }
               }
-            >Submit and Add more student</button>
+            >Add more student</button>
 
             <button
-            // type="submit" className="btn btn-primary" onClick={(event) => {
-            //             event.preventDefault();
-            //             signup(name, password);
-            //         }
-            //         }
+              type="submit" className="btn btn-primary" onClick={(event) => {
+                // console.log("finished")
+                event.preventDefault();
+                addStudent(Student);
+
+              }
+              }
             >Finished </button>
 
           </form>
