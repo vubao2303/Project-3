@@ -1,9 +1,7 @@
-import React from "react"
+import React from "react";
 
 function StudentCard(props) {
   return (
-    <div>
-      return (
       <div className="container">
 
         <div className="card mb-3">
@@ -19,7 +17,5 @@ function StudentCard(props) {
 
       </div>
   )
-    </div>
-  )
 }
-export default StudentCard
+export default StudentCard;

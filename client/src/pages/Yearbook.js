@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
 import FrontResult from '../components/FrontResult/FrontResult';
-import StudentCard from "../components/SearchForm/SearchForm";
+import StudentCard from "../components/StudentCard/StudentCard";
 import API from "../utils/API";
 function Yearbook() {
   let locationObject = useLocation();
@@ -16,7 +16,6 @@ function Yearbook() {
 
   useEffect(() => {
     if (book) {
-      console.log(book);
       API.getClassByBook(book).then((classes) => {
         setClass([...classes.data]);
       });
@@ -25,16 +24,30 @@ function Yearbook() {
 
   useEffect(() => {
     if (Class[0]) {
-      for (let i = 0; i < Class.length; i++) {
-        API.getStudentByClass(String(Class[i].id)).then((students) => {
-          setStudent([...student, ...students.data]);
+      Class.map((miniClass) => {
+        API.getStudentByClass(String(miniClass.id)).then((students) => {
+          setStudent(student => student.concat(students.data));
         })
       }
+      )
     }
   }, [Class])
+
   return (
-    // <StudentCard />
     <div>
+      {student.map((studentGuy) => {
+        return (
+          <StudentCard
+            key={studentGuy.id}
+            name={studentGuy.name}
+            nickname={studentGuy.nickname}
+            quote={studentGuy.quote}
+            linkedIn={studentGuy.linkedIn}
+            hobbies={studentGuy.hobbies}
+          />
+        )
+      }
+      )}
     </div>
   )
 }
