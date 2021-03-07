@@ -4,6 +4,7 @@ import "./style.css";
 
 function SearchForm() {
 
+  const [Class, setClass] = useState([]);
   const [books, setBooks] = useState([]);
   const [year, setYear] = useState("-50");
 // add search by name
@@ -21,6 +22,16 @@ function SearchForm() {
     API.getBooksByYear(searchYear).then((books) => {
       setBooks(books.data);
       console.log(books.data);
+    })
+      .catch(err => console.log(err));
+  }
+// add function to load classes
+  function loadClasses(searchBooks) {
+    console.log("loadClasses")
+
+    API.getClassByBook(searchBooks).then((Class) => {
+      setClass(Class.data);
+      console.log(Class.data);
     })
       .catch(err => console.log(err));
   }
@@ -51,6 +62,17 @@ function SearchForm() {
 
         </div>
         {/* show class result */}
+        {/* <div className="searchResult">
+          {books.map((Class, id) => {
+            var href = "/yearbook/" + Class.id;
+            return (
+              <ul><li onclick={loadClasses}><a key={id} href={href}>{Class.schoolName}, {Class.year}</a></li></ul>
+            )
+          })}
+        </div> */}
+
+
+
         <div className="searchResult">
           {books.map((book, id) => {
             var href = "/yearbook/" + book.id;
@@ -59,17 +81,6 @@ function SearchForm() {
             )
           })}
         </div>
-
-
-
-        {/* <div className="searchResult">
-          {books.map((book, id) => {
-            var href = "/yearbook/" + book.id;
-            return (
-              <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
-            )
-          })}
-        </div> */}
       </div></div>
   )
 
