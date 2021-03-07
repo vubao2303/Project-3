@@ -33,7 +33,7 @@ function SearchForm() {
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
         {books.map(book => {
-          var href = "/book/" + book.id;
+          var href = "/yearbook/" + book.id;
           return (
           <a href ={href}>{book.schoolName}, {book.year}</a>
           )
