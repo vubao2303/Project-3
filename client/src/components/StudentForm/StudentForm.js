@@ -1,6 +1,7 @@
 // import React from "react"
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
+import "./style.css";
 
 function StudentForm() {
 
@@ -60,37 +61,7 @@ function StudentForm() {
       <div className="row">
         <div className="col-md-3"></div>
         <div className="col-md-6">
-          <form  >
-            {/* student Name */}
-            <div className="mb-3">
-              <label htmlFor="studentName" className="form-label">Name</label>
-              <input onChange={handleSave} name="name" type="text" className="form-control" id="studentName" />
-            </div>
-
-            {/* title  */}
-            <div className="mb-3">
-              <label htmlFor="studentTitle" className="form-label">Nickname </label>
-              <input onChange={handleSave} name="nickname" type="text" className="form-control" id="studentTitle" />
-            </div>
-
-            {/* hobbies */}
-            <div className="mb-3">
-              <label htmlFor="studentHobbies" className="form-label">Hobbies</label>
-              <input onChange={handleSave} name="hobbies" type="text" className="form-control" id="studentHobbies" />
-            </div>
-
-            {/* quote */}
-            <div className="mb-3">
-              <label htmlFor="studenQuote" className="form-label">Quote</label>
-              <input onChange={handleSave} name="quote"
-                type="text" className="form-control" id="studenQuote" />
-            </div>
-
-            {/* linkedIn */}
-            <label htmlFor="basic-url" className="form-label">LinkedIn </label>
-            <div className="input-group mb-3">
-              <input onChange={handleSave} name="linkedIn" type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
-            </div>
+          <form className="studentform">
 
             <select className="form-select" aria-label="Default select example" onChange={
               (event => {
@@ -123,6 +94,38 @@ function StudentForm() {
                 }
                 )}
             </select>
+            {/* student Name */}
+            <div className="mb-3">
+              <label htmlFor="studentName" className="form-label">Name</label>
+              <input onChange={handleSave} name="name" type="text" className="form-control" id="studentName" />
+            </div>
+
+            {/* title  */}
+            <div className="mb-3">
+              <label htmlFor="studentTitle" className="form-label">Nickname </label>
+              <input onChange={handleSave} name="nickname" type="text" className="form-control" id="studentTitle" />
+            </div>
+
+            {/* hobbies */}
+            <div className="mb-3">
+              <label htmlFor="studentHobbies" className="form-label">Hobbies</label>
+              <input onChange={handleSave} name="hobbies" type="text" className="form-control" id="studentHobbies" />
+            </div>
+
+            {/* quote */}
+            <div className="mb-3">
+              <label htmlFor="studenQuote" className="form-label">Quote</label>
+              <input onChange={handleSave} name="quote"
+                type="text" className="form-control" id="studenQuote" />
+            </div>
+
+            {/* linkedIn */}
+            <label htmlFor="basic-url" className="form-label">LinkedIn </label>
+            <div className="input-group mb-3">
+              <input onChange={handleSave} name="linkedIn" type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
+            </div>
+
+
 
             <button
               type="submit" className="btn btn-primary" onClick={(event) => {

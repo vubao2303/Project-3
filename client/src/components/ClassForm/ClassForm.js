@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
-
+import "./style.css";
 
 function ClassForm() {
 
@@ -37,20 +37,7 @@ function ClassForm() {
 
   return (
     <div className="container">
-      <form>
-
-        <div className="mb-3">
-          <label htmlFor="grade" className="form-label">Grade/Class Level</label>
-          <input onChange={handleChange} name="gradeLevel" type="text" className="form-control" id="grade" />
-        </div>
-
-        {/*  Title/Class Name  */}
-        <div className="mb-3">
-          <label htmlFor="class-name" className="form-label">Title/Class Name</label>
-          <input onChange={handleChange} name="className" type="text" className="form-control" id="class-name" />
-        </div>
-
-
+      <form className="classform">
         <select className="form-select" aria-label="Default select example" onChange={
           (event => {
             event.preventDefault();
@@ -66,13 +53,32 @@ function ClassForm() {
           )}
         </select>
 
+        <div className="mb-3">
+          <label htmlFor="grade" className="form-label">Grade/Class Level</label>
+          <input onChange={handleChange} name="gradeLevel" type="text" className="form-control" id="grade" />
+        </div>
+
+        {/*  Title/Class Name  */}
+        <div className="mb-3">
+          <label htmlFor="class-name" className="form-label">Title/Class Name</label>
+          <input onChange={handleChange} name="className" type="text" className="form-control" id="class-name" />
+        </div>
+
+
         {/* Button here  */}
         {/* Save and add another class */}
         <button onClick={e => {
           e.preventDefault();
           createClass(Class);
         }
-        } type="button" className="btn btn-primary">Save and add another class</button>
+        } type="button" className="btn btn-primary">Add another class</button>
+
+        {/* Save and add student class */}
+        <button onClick={e => {
+          e.preventDefault();
+          createClass(Class);
+        }
+        } type="button" className="btn btn-primary">Add students</button>
 
 
       </form >

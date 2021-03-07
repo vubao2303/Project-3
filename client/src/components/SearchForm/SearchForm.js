@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import API from "../../utils/API";
+import "./style.css";
 
 function SearchForm() {
 
@@ -24,10 +25,10 @@ function SearchForm() {
   return (
     <div>
       <div className="row">
-        <div className="col-md-2"></div>
-        <div className="col-md-8">
+        <div className="col-md-5"></div>
+        <div className="col-md-4">
 
-          <form >
+          <form className="meform">
             <div className="mb-3">
               <label htmlFor="searchforYearBook" className="form-label">Search</label>
               <input onChange={(event) => {
@@ -43,13 +44,17 @@ function SearchForm() {
               document.getElementById('searchForYB').value = '';
             }} type="submit" className="btn btn-primary">Submit</button>
           </form>
+
+
+
+        </div>
+        <div className="searchResult">
           {books.map((book, id) => {
             var href = "/yearbook/" + book.id;
             return (
               <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
             )
           })}
-
         </div>
       </div></div>
   )
