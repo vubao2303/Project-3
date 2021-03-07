@@ -31,7 +31,6 @@ function DisplayClass() {
       <div className="row">
         <div className="col-md-5"></div>
         <div className="col-md-4">
-
         </div>
         <div className="searchResult">
           {Class.map((Class, id) => {

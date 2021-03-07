@@ -75,7 +75,7 @@ function SearchForm() {
 
         <div className="searchResult">
           {books.map((book, id) => {
-            var href = "/yearbook/" + book.id;
+            var href = "/display";
             return (
               <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
             )
