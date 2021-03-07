@@ -1,13 +1,54 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
 import FrontResult from '../components/FrontResult/FrontResult';
-import StudentCard from "../components/SearchForm/SearchForm";
+import StudentCard from "../components/StudentCard/StudentCard";
+import API from "../utils/API";
 function Yearbook() {
-  let location = useLocation();
-  console.log(location); 
-  // /yearbook/1
+  let locationObject = useLocation();
+  let location = locationObject.pathname[locationObject.pathname.length - 1];
+  const [book, setBook] = useState();
+  const [Class, setClass] = useState([]);
+  const [student, setStudent] = useState([]);
+
+  useEffect(() => {
+    setBook(location);
+  }, [])
+
+  useEffect(() => {
+    if (book) {
+      API.getClassByBook(book).then((classes) => {
+        setClass([...classes.data]);
+      });
+    }
+  }, [book])
+
+  useEffect(() => {
+    if (Class[0]) {
+      Class.map((miniClass) => {
+        API.getStudentByClass(String(miniClass.id)).then((students) => {
+          setStudent(student => student.concat(students.data));
+        })
+      }
+      )
+    }
+  }, [Class])
+
   return (
-    <StudentCard />
+    <div>
+      {student.map((studentGuy) => {
+        return (
+          <StudentCard
+            key={studentGuy.id}
+            name={studentGuy.name}
+            nickname={studentGuy.nickname}
+            quote={studentGuy.quote}
+            linkedIn={studentGuy.linkedIn}
+            hobbies={studentGuy.hobbies}
+          />
+        )
+      }
+      )}
+    </div>
   )
 }
 export default Yearbook
