@@ -4,8 +4,11 @@ import "./style.css";
 
 function SearchForm() {
 
+  const [Class, setClass] = useState([]);
   const [books, setBooks] = useState([]);
   const [year, setYear] = useState("-50");
+// add search by name
+
 
   React.useEffect(() => {
     if (year === "") {
@@ -22,6 +25,16 @@ function SearchForm() {
     })
       .catch(err => console.log(err));
   }
+// add function to load classes
+  function loadClasses(searchBooks) {
+    console.log("loadClasses")
+
+    API.getClassByBook(searchBooks).then((Class) => {
+      setClass(Class.data);
+      console.log(Class.data);
+    })
+      .catch(err => console.log(err));
+  }
   return (
     <div>
       <div className="row">
@@ -35,7 +48,7 @@ function SearchForm() {
                 event.preventDefault();
                 // console.log("banana")
                 setYear(event.target.value);
-              }} placeholer="search for your yearbook here" className="form-control" id="searchForYB" />
+              }} placeholder="search for your yearbook here" className="form-control" id="searchForYB" />
             </div>
 
             <button onClick={(event) => {
@@ -48,9 +61,21 @@ function SearchForm() {
 
 
         </div>
+        {/* show class result */}
+        {/* <div className="searchResult">
+          {books.map((Class, id) => {
+            var href = "/yearbook/" + Class.id;
+            return (
+              <ul><li onclick={loadClasses}><a key={id} href={href}>{Class.schoolName}, {Class.year}</a></li></ul>
+            )
+          })}
+        </div> */}
+
+
+
         <div className="searchResult">
           {books.map((book, id) => {
-            var href = "/yearbook/" + book.id;
+            var href = "/display";
             return (
               <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
             )

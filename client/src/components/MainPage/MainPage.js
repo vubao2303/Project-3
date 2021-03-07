@@ -15,6 +15,7 @@ function MainPage() {
           <button><a href="/search">Search For Yearbook</a></button>
           {/* Link to create page  */}
           {/* <button><a href="/create">Create</a></button> */}
+          
         </div>
       </div>
     </div>
