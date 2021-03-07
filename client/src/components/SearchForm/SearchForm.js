@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
 
 function SearchForm() {
 
   const [books, setBooks] = useState([]);
-  const [year, setYear] = useState("");
+  const [year, setYear] = useState("-50");
+
+  React.useEffect(() => {
+    if (year === "") {
+      setYear("-50");
+    }
+  }, [year])
 
   function loadYearbook(searchYear) {
     console.log("load")
+
     API.getBooksByYear(searchYear).then((books) => {
       setBooks(books.data);
       console.log(books.data);
     })
       .catch(err => console.log(err));
   }
-  // useEffect(() => {
-
-  //   setBooks([1])
-  // }, []
-  // )
-
-
-
   return (
     <div>
       <form >
@@ -37,21 +36,16 @@ function SearchForm() {
         <button onClick={(event) => {
           event.preventDefault();
           loadYearbook(year);
+          document.getElementById('searchForYB').value = '';
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
-
-      { (() => {
+      {books.map((book, id) => {
+        var href = "/yearbook/" + book.id;
         return (
-          books.map((book, id) => {
-            var href = "/yearbook/" + book.id;
-            return (
-              <div>
-                <a key={id} href={href}>{book.schoolName}, {book.year}</a>
-              </div>
-            )
-          }))
-      })
-      }
+          <a key={id} href={href}>{book.schoolName}, {book.year}</a>
+        )
+      })}
+
     </div>
   )
 
