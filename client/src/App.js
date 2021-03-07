@@ -10,12 +10,14 @@ import Create from "./pages/Create"
 import Main from "./pages/Main"
 import Student from "./pages/StudentPage"
 import Class from "./pages/Class"
+import DisplayClass from "./components/ClassResult/ClassResult";
 
 
 function App() {
   return (
     <Router >
       <Nav />
+      <DisplayClass />
 
 
       <Switch>

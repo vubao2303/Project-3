@@ -6,6 +6,8 @@ function SearchForm() {
 
   const [books, setBooks] = useState([]);
   const [year, setYear] = useState("-50");
+// add search by name
+
 
   React.useEffect(() => {
     if (year === "") {
@@ -35,7 +37,7 @@ function SearchForm() {
                 event.preventDefault();
                 // console.log("banana")
                 setYear(event.target.value);
-              }} placeholer="search for your yearbook here" className="form-control" id="searchForYB" />
+              }} placeholder="search for your yearbook here" className="form-control" id="searchForYB" />
             </div>
 
             <button onClick={(event) => {
@@ -48,6 +50,7 @@ function SearchForm() {
 
 
         </div>
+        {/* show class result */}
         <div className="searchResult">
           {books.map((book, id) => {
             var href = "/yearbook/" + book.id;
@@ -56,6 +59,17 @@ function SearchForm() {
             )
           })}
         </div>
+
+
+
+        {/* <div className="searchResult">
+          {books.map((book, id) => {
+            var href = "/yearbook/" + book.id;
+            return (
+              <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
+            )
+          })}
+        </div> */}
       </div></div>
   )
 
