@@ -11,9 +11,7 @@ module.exports = function (sequelize, DataTypes) {
     //add student association 
     Student.associate = function (models) {
         Student.belongsTo(models.Class, {
-
         });
     }
-
     return Student;
 }

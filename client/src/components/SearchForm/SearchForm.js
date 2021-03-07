@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 function SearchForm() {
@@ -8,13 +8,20 @@ function SearchForm() {
 
   function loadYearbook(searchYear) {
     console.log("load")
-
     API.getBooksByYear(searchYear).then((books) => {
       setBooks(books.data);
       console.log(books.data);
     })
       .catch(err => console.log(err));
   }
+  // useEffect(() => {
+
+  //   setBooks([1])
+  // }, []
+  // )
+
+
+
   return (
     <div>
       <form >
@@ -32,13 +39,19 @@ function SearchForm() {
           loadYearbook(year);
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
-        {books.map(book => {
-          var href = "/yearbook/" + book.id;
-          return (
-          <a href ={href}>{book.schoolName}, {book.year}</a>
-          )
-        })}
 
+      { (() => {
+        return (
+          books.map((book, id) => {
+            var href = "/yearbook/" + book.id;
+            return (
+              <div>
+                <a key={id} href={href}>{book.schoolName}, {book.year}</a>
+              </div>
+            )
+          }))
+      })
+      }
     </div>
   )
 
