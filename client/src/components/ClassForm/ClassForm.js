@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
-
+import "./style.css";
 
 function ClassForm() {
 
@@ -17,7 +17,7 @@ function ClassForm() {
   }, [])
 
   function createClass(Class) {
-    if (Class.className && Class.className !== "" && Class.YearbookId && Class.YearbookId != -1) {
+    if (Class.className && Class.className !== "" && Class.YearbookId && Class.YearbookId !== -1) {
       API.saveClass(Class).then(() => {
         window.location.href = "/student"
       });
@@ -37,7 +37,21 @@ function ClassForm() {
 
   return (
     <div className="container">
-      <form>
+      <form className="classform">
+        <select className="form-select" aria-label="Default select example" onChange={
+          (event => {
+            event.preventDefault();
+            setClass({ ...Class, YearbookId: event.target.value });
+          })
+        }>
+          <option value={-1} defaultValue>Select one of your books to add this class to</option>
+          {books.map(book => {
+            return (
+              <option value={book.id}>{book.schoolName}, {book.year}</option>
+            );
+          }
+          )}
+        </select>
 
         <div className="mb-3">
           <label htmlFor="grade" className="form-label">Grade/Class Level</label>
@@ -51,28 +65,20 @@ function ClassForm() {
         </div>
 
 
-        <select className="form-select" aria-label="Default select example" onChange={
-          (event => {
-            event.preventDefault();
-            setClass({ ...Class, YearbookId: event.target.value });
-          })
-        }>
-          <option value = {-1} defaultValue>Select one of your books to add this class to</option>
-          {books.map(book => {
-            return (
-              <option value={book.id}>{book.schoolName}, {book.year}</option>
-            );
-          }
-          )}
-        </select>
-
         {/* Button here  */}
         {/* Save and add another class */}
         <button onClick={e => {
           e.preventDefault();
           createClass(Class);
         }
-        } type="button" className="btn btn-primary">Save and add another class</button>
+        } type="button" className="btn btn-primary">Add another class</button>
+
+        {/* Save and add student class */}
+        <button onClick={e => {
+          e.preventDefault();
+          createClass(Class);
+        }
+        } type="button" className="btn btn-primary">Add students</button>
 
 
       </form >
