@@ -39,12 +39,12 @@ function SearchForm() {
           document.getElementById('searchForYB').value = '';
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
-        {books.map((book, id) => {
-          var href = "/yearbook/" + book.id;
-          return (
-          <a key = {id} href ={href}>{book.schoolName}, {book.year}</a>
-          )
-        })}
+      {books.map((book, id) => {
+        var href = "/yearbook/" + book.id;
+        return (
+          <a key={id} href={href}>{book.schoolName}, {book.year}</a>
+        )
+      })}
 
     </div>
   )
