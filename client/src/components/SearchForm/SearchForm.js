@@ -38,10 +38,10 @@ function SearchForm() {
           loadYearbook(year);
         }} type="submit" className="btn btn-primary">Submit</button>
       </form>
-        {books.map(book => {
+        {books.map((book, id) => {
           var href = "/yearbook/" + book.id;
           return (
-          <a href ={href}>{book.schoolName}, {book.year}</a>
+          <a key = {id} href ={href}>{book.schoolName}, {book.year}</a>
           )
         })}
 
