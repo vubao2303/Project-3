@@ -5,3 +5,7 @@
   padding: 10px;
   background-image: url(./simple.jpeg);
 }
+.searchform {
+  border-radius: 10px;
+  padding: 10px;
+}

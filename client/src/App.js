@@ -28,6 +28,8 @@ function App() {
         <Route exact path="/student" component={Student} />
         <Route exact path="/class" component={Class} />
         <Route path="/yearbook" component={Yearbook} />
+
+        <Route path="/display" component={Display} />
         {/* <Route exact path="/" component={Yearbook} /> */}
         {/* <Route exact path="/save" component={Saved} />
         <Route exact path="/search" component={Books} /> */}
