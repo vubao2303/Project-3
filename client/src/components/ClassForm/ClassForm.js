@@ -1,27 +1,37 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
 
 
 function ClassForm() {
 
   const [Class, setClass] = useState({});
+  const [books, setBooks] = useState([]);
+  // useEffect
+  useEffect(() => {
+    if (sessionStorage.getItem("userId")) {
+      API.getBooksByUser(sessionStorage.getItem("userId")).then((books) => {
+        setBooks(books.data);
+      });
+    }
 
-  // // useEffect
-  // // function getClass() {
-  //   setClass(Class)
-
-  // // }
+  }, [])
 
   function createClass(Class) {
-    API.saveClass(Class).then(() => {
-      window.location.href = "/student"
-    })
+    if (Class.className && Class.className !== "" && Class.YearbookId && Class.YearbookId != -1) {
+      API.saveClass(Class).then(() => {
+        window.location.href = "/student"
+      });
+    }
+    else {
+      alert("You need to choose a yearbook and a name to add a class!");
+    }
   }
 
   function handleChange(event) {
     console.log(event)
     console.log(event.target.value)
     setClass({ ...Class, [event.target.name]: event.target.value })
+    console.log(Class);
 
   }
 
@@ -39,6 +49,22 @@ function ClassForm() {
           <label htmlFor="class-name" className="form-label">Title/Class Name</label>
           <input onChange={handleChange} name="className" type="text" className="form-control" id="class-name" />
         </div>
+
+
+        <select className="form-select" aria-label="Default select example" onChange={
+          (event => {
+            event.preventDefault();
+            setClass({ ...Class, YearbookId: event.target.value });
+          })
+        }>
+          <option value = {-1} defaultValue>Select one of your books to add this class to</option>
+          {books.map(book => {
+            return (
+              <option value={book.id}>{book.schoolName}, {book.year}</option>
+            );
+          }
+          )}
+        </select>
 
         {/* Button here  */}
         {/* Save and add another class */}

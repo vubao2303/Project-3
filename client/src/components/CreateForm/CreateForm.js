@@ -8,10 +8,16 @@ function CreateForm() {
     const [year, setYear] = useState("");
 
     function createYearbook(schoolname, schoolyear) {
-        var yearbookData = { schoolName: schoolname, year: schoolyear }
-        API.createYearbook(yearbookData).then(() => {
-            window.location.href = "/class"
-        })
+        if (sessionStorage.getItem("userId")) {
+            var yearbookData = { schoolName: schoolname, year: schoolyear, UserId: sessionStorage.getItem("userId") };
+            API.createYearbook(yearbookData).then(() => {
+                window.location.href = "/class"
+            })
+        }
+        else {
+            alert("You need to be logged in!");
+        }
+
     }
 
     return (

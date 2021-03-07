@@ -1,30 +1,51 @@
 // import React from "react"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 function StudentForm() {
 
   const [Student, setStudent] = useState({});
 
-  // ok this is redundant but I don't know a better way 
+  const [book, setBook] = useState(-1);
 
-  // const [StName, setStName] = useState("");
-  // const [Hobbies, setHobbies] = useState("");
-  // const [LinkedIn, setLinked] = useState("");
-  // const [Quote, setQuote] = useState("");
-  // const [Title, setTittle] = useState("")
+  const [books, setBooks] = useState([]);
 
-  // This will show all the students in the database 
-  function loadStudent() {
-  }
+  const [Class, setClass] = useState([]);
 
+  // useEffect
+  useEffect(() => {
+    if (sessionStorage.getItem("userId")) {
+      API.getBooksByUser(sessionStorage.getItem("userId")).then((books) => {
+        setBooks(books.data);
+      });
+    }
 
+  }, [])
+
+  useEffect(() => {
+    if (book !== -1) {
+      API.getClassByBook(book).then((classes) => {
+        if (classes.data[0]) {
+          setClass(classes.data);
+          console.log(Class);
+        }
+      });
+    }
+
+  }, [book])
 
   function addStudent(Student) {
-    API.saveStudent(Student).then(() => {
-      console.log("yes you added a student")
-      window.location.href = "/student"
-    })
+    // make sure required fields are filled
+    console.log(Student);
+    if (Student.name !== "" && Student.ClassId && Student.ClassId !== -1) {
+      API.saveStudent(Student).then(() => {
+        console.log("yes you added a student")
+        window.location.href = "/student"
+      })
+    }
+    else {
+      alert("You are missing required fields! (Name and class are required)");
+    }
   }
 
   function handleSave(e) {
@@ -48,8 +69,8 @@ function StudentForm() {
 
             {/* title  */}
             <div className="mb-3">
-              <label htmlFor="studentTitle" className="form-label">Title </label>
-              <input onChange={handleSave} name="title" type="text" className="form-control" id="studentTitle" />
+              <label htmlFor="studentTitle" className="form-label">Nickname </label>
+              <input onChange={handleSave} name="nickname" type="text" className="form-control" id="studentTitle" />
             </div>
 
             {/* hobbies */}
@@ -71,13 +92,45 @@ function StudentForm() {
               <input onChange={handleSave} name="linkedIn" type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
             </div>
 
+            <select className="form-select" aria-label="Default select example" onChange={
+              (event => {
+                event.preventDefault();
+                var newBookId = event.target.value;
+                setBook(newBookId);
+              })
+            }>
+              <option value={false} defaultValue>Select one of your books to add this class to</option>
+              {books.map(book => {
+                return (
+                  <option value={book.id}>{book.schoolName}, {book.year}</option>
+                );
+              }
+              )}
+            </select>
+
+            <select className="form-select" aria-label="Default select example" onChange={
+              (event => {
+                event.preventDefault();
+                setStudent({ ...Student, ClassId: event.target.value });
+              })
+            }>
+              <option value={-1} defaultValue>Select one of the classes in your selected yearbook to add this student to</option>
+              {
+                Class.map(littleClass => {
+                  return (
+                    <option value={littleClass.id}>{littleClass.className}</option>
+                  );
+                }
+                )}
+            </select>
+
             <button
               type="submit" className="btn btn-primary" onClick={(event) => {
                 event.preventDefault();
                 addStudent(Student);
               }
               }
-            >Summit and Add more student</button>
+            >Submit and Add more student</button>
 
             <button
             // type="submit" className="btn btn-primary" onClick={(event) => {
