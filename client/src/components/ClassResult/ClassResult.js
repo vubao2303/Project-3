@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
 // import FrontResult from '../components/FrontResult/FrontResult';
-import StudentCard from "../StudentCard/StudentCard";
+// import StudentCard from "../StudentCard/StudentCard";
 import API from "../../utils/API";
 // import "./style.css";
 
