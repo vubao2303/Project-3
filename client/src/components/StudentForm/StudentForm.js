@@ -6,11 +6,8 @@ import "./style.css";
 function StudentForm() {
 
   const [Student, setStudent] = useState({});
-
   const [book, setBook] = useState(-1);
-
   const [books, setBooks] = useState([]);
-
   const [Class, setClass] = useState([]);
 
   // useEffect
@@ -20,7 +17,6 @@ function StudentForm() {
         setBooks(books.data);
       });
     }
-
   }, [])
 
   useEffect(() => {
@@ -28,7 +24,7 @@ function StudentForm() {
       API.getClassByBook(book).then((classes) => {
         if (classes.data[0]) {
           setClass(classes.data);
-          console.log(Class);
+          // console.log(Class);
         }
       });
     }
@@ -37,11 +33,25 @@ function StudentForm() {
 
   function addStudent(Student) {
     // make sure required fields are filled
-    console.log(Student);
+    // console.log(Student);
     if (Student.name !== "" && Student.ClassId && Student.ClassId !== -1) {
       API.saveStudent(Student).then(() => {
-        console.log("yes you added a student")
+        // console.log("yes you added a student")
         window.location.href = "/student"
+      })
+    }
+    else {
+      alert("You are missing required fields! (Name and class are required)");
+    }
+  }
+
+  function addStudentandFinish(Student) {
+    // make sure required fields are filled
+    // console.log(Student);
+    if (Student.name !== "" && Student.ClassId && Student.ClassId !== -1) {
+      API.saveStudent(Student).then(() => {
+        // console.log("yes you added a student")
+        window.location.replace("/yearbook/" + Student.ClassId)
       })
     }
     else {
@@ -119,6 +129,12 @@ function StudentForm() {
                 type="text" className="form-control" id="studenQuote" />
             </div>
 
+            {/* student image, url */}
+            <div className="mb-3">
+              <label htmlFor="studentImage" className="form-label">Image Url (try to make this not too long)</label>
+              <input onChange={handleSave} name="image" type="text" className="form-control" id="studentImage" />
+            </div>
+
             {/* linkedIn */}
             <label htmlFor="basic-url" className="form-label">LinkedIn </label>
             <div className="input-group mb-3">
@@ -139,8 +155,8 @@ function StudentForm() {
               type="submit" className="btn btn-primary" onClick={(event) => {
                 // console.log("finished")
                 event.preventDefault();
-                addStudent(Student);
-
+                addStudentandFinish(Student);
+                // when clicked navigate to yearbook page
               }
               }
             >Finished </button>

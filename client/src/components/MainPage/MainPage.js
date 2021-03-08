@@ -23,6 +23,7 @@ function MainPage() {
           <button><a href="/search">Search For Yearbook</a></button>
           {/* Link to create page  */}
           {/* <button><a href="/create">Create</a></button> */}
+
         </div>
       </div>
     </div>
@@ -32,16 +33,3 @@ function MainPage() {
 export default MainPage;
 
 
-// import { Link } from "react-router-dom";
-{/* this is not acccpetable because it doesn't like {}, but we may need this for deploy */ }
-{/* <Link to={"login"}>
-<button><a href="/login">Login</a></button>
-</Link>
-
-<Link to={"/search"}>
-<button><a className="bnt">Search</a></button>
-</Link>
-
-<Link to={"/Create"}>
-<button><a className="create-bnt">Create</a></button>
-</Link> */}

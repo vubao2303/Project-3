@@ -31,7 +31,10 @@ const API = {
     },
     getStudentByClass: function (classId) {
         return axios.get("/api/student/class/" + classId);
-    }
+    },
+    findBookById: function (id) {
+        return axios.get("/api/books/" + id);
+    },
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API

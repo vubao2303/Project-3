@@ -8,32 +8,34 @@ function LoginForm() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
-    function signup(userName, passWord) {
-        console.log("triggeredsignup");
+    async function signup(userName, passWord) {
+        // console.log("triggeredsignup");
         var userData = { username: userName, password: passWord };
         API.signup(userData).then((res) => {
-            console.log(res);
+            // console.log(res);
             if (res.data === false) {
-                console.log("taken");
+                // console.log("taken");
                 alert("Username already taken!");
             }
             else {
-                console.log("not taken");
-                window.location.replace("/create");
-                alert("Account created!");
+                API.login(userData).then((res) => {
+                    sessionStorage.setItem("userId", res.data);
+                    window.location.replace("/create");
+                    alert("Account created!");
+                });
             }
         });
     }
 
     function login(userName, passWord) {
-        console.log("triggeredlogin");
+        // console.log("triggeredlogin");
         var userData = { username: userName, password: passWord };
         API.login(userData).then((res) => {
-            console.log(res);
+            // console.log(res);
             if (res.data && res.data !== "wrong") {
                 window.location.replace("/create");
                 <a href="/create">Login</a>
-                console.log("you are logged in");
+                // console.log("you are logged in");
                 alert("Login");
                 sessionStorage.setItem("userId", res.data);
             }
@@ -41,15 +43,11 @@ function LoginForm() {
                 alert("Wrong password!");
             }
             else {
-                console.log("there is no account");
+                // console.log("there is no account");
                 alert("Check again, no such account");
             }
         });
     }
-
-    // function takeHome() {
-
-    // }
 
     return (
         <div className="container"> <div className="row">

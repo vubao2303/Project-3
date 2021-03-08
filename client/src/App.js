@@ -10,6 +10,7 @@ import Create from "./pages/Create"
 import Main from "./pages/Main"
 import Student from "./pages/StudentPage"
 import Class from "./pages/Class"
+import Display from "./pages/Display";
 
 
 function App() {
@@ -20,13 +21,15 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Main} />
-
+        <Route exact path="/display" component={Display} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/search" component={Search} />
         <Route exact path="/create" component={Create} />
         <Route exact path="/student" component={Student} />
         <Route exact path="/class" component={Class} />
         <Route path="/yearbook" component={Yearbook} />
+
+        <Route path="/display" component={Display} />
         {/* <Route exact path="/" component={Yearbook} /> */}
         {/* <Route exact path="/save" component={Saved} />
         <Route exact path="/search" component={Books} /> */}
