@@ -17,7 +17,7 @@ function SearchForm() {
 
   function loadYearbook(searchYear) {
     console.log("load")
-    if (year != "-50") {
+    if (year !== "-50") {
       API.getBooksByYear(searchYear).then((books) => {
         setBooks(books.data);
         console.log(books.data);
