@@ -26,10 +26,13 @@
 
 import React from "react";
 // import click css & theme
-
+import "~slick-carousel/slick/slick.css"; 
+import "~slick-carousel/slick/slick-theme.css";
 // import slider
+import Slider from "react-slick";
 
 function StudentCard(props) {
+  // create variable settings
   return (
     <div className="container">
 
