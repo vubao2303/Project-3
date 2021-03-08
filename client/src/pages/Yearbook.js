@@ -13,18 +13,19 @@ function Yearbook() {
 
   useEffect(() => {
     setClass(location);
+    console.log(location)
   }, [])
 
   // use effect changes when book changes running the function sets the new state of book 
   // class changes with book changes
-  
+
   useEffect(() => {
 
-      API.getStudentByClass(Class).then((students) => {
-        setStudent([...students.data]);
-      });
+    API.getStudentByClass(Class).then((students) => {
+      setStudent([...students.data]);
+    });
   }, [Class])
- 
+
   // student changes when class
   // useEffect(() => {
   //   if (Class[0]) {
