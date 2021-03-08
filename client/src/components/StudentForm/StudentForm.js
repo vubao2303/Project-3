@@ -119,6 +119,12 @@ function StudentForm() {
                 type="text" className="form-control" id="studenQuote" />
             </div>
 
+            {/* student image, url */}
+            <div className="mb-3">
+              <label htmlFor="studentImage" className="form-label">Image Url (try to make this not too long)</label>
+              <input onChange={handleSave} name="image" type="text" className="form-control" id="studentImage" />
+            </div>
+
             {/* linkedIn */}
             <label htmlFor="basic-url" className="form-label">LinkedIn </label>
             <div className="input-group mb-3">
