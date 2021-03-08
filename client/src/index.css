@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.border {
+  background-color: rgb(167, 197, 161);
+  border-radius: 10px;
+  
+}
+.schoolList {
+  padding:10px;
+}

@@ -22,8 +22,8 @@ function CreateForm() {
 
     return (
         <div className="container"> <div className="row">
-            <div className="col-md-4"></div>
-            <div className="col-md-5">
+            <div className="col-md-3"></div>
+            <div className="col-md-9">
                 <form className="meform">
                     <h1> Create Yearbook </h1>
                     <div className="row mb-3">
