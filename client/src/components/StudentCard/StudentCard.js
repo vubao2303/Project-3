@@ -25,6 +25,9 @@
 
 
 import React from "react";
+// import click css & theme
+
+// import slider
 
 function StudentCard(props) {
   return (
