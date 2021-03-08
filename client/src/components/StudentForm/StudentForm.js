@@ -6,11 +6,8 @@ import "./style.css";
 function StudentForm() {
 
   const [Student, setStudent] = useState({});
-
   const [book, setBook] = useState(-1);
-
   const [books, setBooks] = useState([]);
-
   const [Class, setClass] = useState([]);
 
   // useEffect
@@ -20,7 +17,6 @@ function StudentForm() {
         setBooks(books.data);
       });
     }
-
   }, [])
 
   useEffect(() => {
