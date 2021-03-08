@@ -19,6 +19,14 @@ router
     .route("/year/:year")
     .get(yearbookController.findByYear);
 
+router
+    .route("/yn/:year/:name")
+    .get(yearbookController.findByYearandName);
+
+router
+    .route("/ynn/:name")
+    .get(yearbookController.findByName);
+
 // Matches with "/api/books/user/:user"
 router
     .route("/user/:user")

@@ -1,4 +1,6 @@
 const db = require("../models");
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Defining methods for the yearbook controller
 module.exports = {
@@ -22,6 +24,30 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findByYearandName: function (req, res) {
+        db.Yearbook.findAll({
+            where: [{ year: req.params.year },
+            {
+                schoolName: {
+                    [Op.like]: '%' + req.params.name + '%'
+                }
+            }]
+        })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    findByName: function (req, res) {
+        db.Yearbook.findAll({
+            limit: 10,
+            where: {
+                schoolName: {
+                    [Op.like]: '%' + req.params.name + '%'
+                }
+            }
+        })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     create: function (req, res) {
         db.Yearbook.create(req.body)
             .then(dbModel => res.json(dbModel))
@@ -34,7 +60,7 @@ module.exports = {
     },
     remove: function (req, res) {
         db.Yearbook.destroy({ where: { id: req.params.id } })
-            .then(dbModel => dbModel.remove())
+            // .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }

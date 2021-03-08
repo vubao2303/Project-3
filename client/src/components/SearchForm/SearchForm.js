@@ -6,6 +6,7 @@ function SearchForm() {
 
   const [books, setBooks] = useState([]);
   const [year, setYear] = useState("-50");
+  const [name, setName] = useState("");
   // add search by name
 
 
@@ -15,11 +16,31 @@ function SearchForm() {
     }
   }, [year])
 
-  function loadYearbook(searchYear) {
-    console.log("load")
-    if (year !== "-50") {
+  function loadYearbook(searchYear, searchName) {
+    // console.log("load");
+    if (year !== "-50" && name !== "") {
+      API.getBooksByYearandName(searchYear, searchName).then((books) => {
+        setBooks(books.data);
+        setYear("-50");
+        setName("");
+        console.log(books.data);
+      })
+        .catch(err => console.log(err));
+    }
+    else if (year !== "-50") {
       API.getBooksByYear(searchYear).then((books) => {
         setBooks(books.data);
+        setYear("-50");
+        setName("");
+        console.log(books.data);
+      })
+        .catch(err => console.log(err));
+    }
+    else if (name !== "") {
+      API.getBooksByName(searchName).then((books) => {
+        setBooks(books.data);
+        setYear("-50");
+        setName("");
         console.log(books.data);
       })
         .catch(err => console.log(err));
@@ -39,13 +60,22 @@ function SearchForm() {
                 event.preventDefault();
                 // console.log("banana")
                 setYear(event.target.value);
-              }} placeholder="search for your yearbook here" className="form-control" id="searchForYB" />
+              }} placeholder="Year here" className="form-control" id="searchForYB" />
+            </div>
+
+            <div className="mb-5">
+              <input onChange={(event) => {
+                event.preventDefault();
+                // console.log("banana")
+                setName(event.target.value);
+              }} placeholder="School name here" className="form-control" id="searchForYBname" />
             </div>
 
             <button onClick={(event) => {
               event.preventDefault();
-              loadYearbook(year);
+              loadYearbook(year, name);
               document.getElementById('searchForYB').value = '';
+              document.getElementById('searchForYBname').value = '';
             }} type="submit" className="btn btn-primary">Submit</button>
           </form>
 
