@@ -40,6 +40,7 @@ function StudentCard(props) {
               <p>{props.hobbies}</p>
               <h4>Quote:</h4>
               <p>{props.quote}</p>
+              <img src = {props.image}/>
               <h5>Link:</h5>
               <a href={props.linkedIn} >See more info on this person!</a>
             </div>

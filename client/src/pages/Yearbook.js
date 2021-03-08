@@ -48,6 +48,7 @@ function Yearbook() {
             quote={studentGuy.quote}
             linkedIn={studentGuy.linkedIn}
             hobbies={studentGuy.hobbies}
+            image={studentGuy.image}
           />
         )
       }
