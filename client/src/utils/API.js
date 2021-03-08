@@ -35,6 +35,9 @@ const API = {
     findBookById: function (id) {
         return axios.get("/api/books/" + id);
     },
+    deleteBook: function (id) {
+        return axios.delete("/api/books/" + id);
+    },
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API

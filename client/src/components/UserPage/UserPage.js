@@ -23,6 +23,15 @@ function UserPage() {
             .catch(err => console.log(err));
     }, [user])
 
+    function deleteBook(id) {
+        API.deleteBook(id).then(() => {
+            API.getBooksByUser(user).then((books) => {
+                setBooks(books.data);
+            })
+                .catch(err => console.log(err));
+        });
+    }
+
     return (
         <div>
             <div className="searchResult">
@@ -38,7 +47,10 @@ function UserPage() {
                                     <li> <a key={id} href={href}> View </a> </li>
                                     <li> <a href="/class"> Add Class </a> </li>
                                     <li> <a href="/student"> Add Student </a> </li>
-                                    <li> Delete </li>
+                                    <li onClick={(event) => {
+                                        event.preventDefault();
+                                        deleteBook(book.id)
+                                        }}> Delete </li>
                                 </ul>
                             </div>
                         </div>
