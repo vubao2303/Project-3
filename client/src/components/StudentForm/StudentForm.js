@@ -148,7 +148,7 @@ function StudentForm() {
                 addStudent(Student);
                 // when clicked navigate to yearbook page
                 if (book !== -1) {
-                  window.location.replace("/yearbook/" + book)
+                  window.location.replace("/yearbook/" + Class.id)
                 }
               }
               }

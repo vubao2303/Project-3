@@ -9,7 +9,7 @@ import API from "../../utils/API";
 
 function DisplayClass() {
   let locationObject = useLocation();
-  let location = locationObject.pathname[locationObject.pathname.length - 1];
+  let location = locationObject.pathname.slice(10);
   const [student, setStudent] = useState([]);
   const [Class, setClass] = useState([]);
   const [book, setBook] = useState([]);
