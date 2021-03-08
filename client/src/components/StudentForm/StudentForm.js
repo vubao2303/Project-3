@@ -28,7 +28,7 @@ function StudentForm() {
       API.getClassByBook(book).then((classes) => {
         if (classes.data[0]) {
           setClass(classes.data);
-          console.log(Class);
+          // console.log(Class);
         }
       });
     }
@@ -37,11 +37,25 @@ function StudentForm() {
 
   function addStudent(Student) {
     // make sure required fields are filled
-    console.log(Student);
+    // console.log(Student);
     if (Student.name !== "" && Student.ClassId && Student.ClassId !== -1) {
       API.saveStudent(Student).then(() => {
-        console.log("yes you added a student")
+        // console.log("yes you added a student")
         window.location.href = "/student"
+      })
+    }
+    else {
+      alert("You are missing required fields! (Name and class are required)");
+    }
+  }
+
+  function addStudentandFinish(Student) {
+    // make sure required fields are filled
+    // console.log(Student);
+    if (Student.name !== "" && Student.ClassId && Student.ClassId !== -1) {
+      API.saveStudent(Student).then(() => {
+        // console.log("yes you added a student")
+        window.location.replace("/yearbook/" + Student.ClassId)
       })
     }
     else {
@@ -145,11 +159,8 @@ function StudentForm() {
               type="submit" className="btn btn-primary" onClick={(event) => {
                 // console.log("finished")
                 event.preventDefault();
-                addStudent(Student);
+                addStudentandFinish(Student);
                 // when clicked navigate to yearbook page
-                if (book !== -1) {
-                  window.location.replace("/yearbook/" + Student.ClassId)
-                }
               }
               }
             >Finished </button>
