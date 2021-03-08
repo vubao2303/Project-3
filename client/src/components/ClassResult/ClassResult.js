@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 // import FrontResult from '../components/FrontResult/FrontResult';
 // import StudentCard from "../StudentCard/StudentCard";
 import API from "../../utils/API";
-// import "./style.css";
+import "./style.css";
 
 function DisplayClass() {
   let locationObject = useLocation();
@@ -41,7 +41,13 @@ function DisplayClass() {
       )
     }
   }, [Class])
+  // function handleEdit(e) {
+  //   API.findBookById(e.target.value).then((foundbook) => {
+  //     console.log(foundbook)
 
+  //     if (foundbook.data.UserId == sessionStorage.getItem("userId")) { window.location.replace("/student") }
+  //   })
+  // }
 
   // function loadClasses(searchBooks) {
   //   console.log("loadClasses")
@@ -58,13 +64,20 @@ function DisplayClass() {
         <div className="col-md-5"></div>
         <div className="col-md-4">
         </div>
-        <div className="searchResult">
-          {Class.map((Class, id) => {
-            var href = "/yearbook/" + Class.id;
-            return (
-              <ul><li><a key={id} href={href}>{Class.className}, {Class.gradeLevel}</a></li></ul>
-            )
-          })}
+        <div className="row">
+          <div className="searchResult">
+            {Class.map((Class, id) => {
+              var href = "/yearbook/" + Class.id;
+              return (
+                <>
+                  <ul><li> {Class.className}, {Class.gradeLevel}</li></ul>
+                  <button><a key={id} href={href}>View </a> </button>
+                  {/* <button onClick={(e) => handleEdit(e)} value={book}> Edit</button> */}
+                </>
+              )
+            })}
+
+          </div>
         </div>
       </div></div>
   )

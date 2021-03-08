@@ -21,7 +21,7 @@ function UserPage() {
             setBooks(books.data);
         })
             .catch(err => console.log(err));
-      }, [user])
+    }, [user])
 
     return (
         <div>
@@ -29,7 +29,13 @@ function UserPage() {
                 {books.map((book, id) => {
                     var href = "/display/" + book.id;
                     return (
-                        <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
+                        <ul>
+                            <li>{book.schoolName}, {book.year}
+                                <button ><a key={id} href={href}> View </a></button>
+                                <button> <a href="/class"> Add Class </a></button>
+                                <button> <a href="/student"> Add Student </a></button>
+                            </li>
+                        </ul>
                     )
                 })}
             </div>
