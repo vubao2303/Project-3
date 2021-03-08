@@ -9,7 +9,7 @@ function Yearbook() {
   console.log(location);
   // const [book, setBook] = useState();
   const [Class, setClass] = useState();
-  const [student, setStudent] = useState([]);
+  const [students, setStudents] = useState([]);
 
   useEffect(() => {
     setClass(location);
@@ -21,8 +21,8 @@ function Yearbook() {
 
   useEffect(() => {
 
-    API.getStudentByClass(Class).then((students) => {
-      setStudent([...students.data]);
+    API.getStudentByClass(Class).then((studentsArr) => {
+      setStudents([...studentsArr.data]);
     });
   }, [Class])
 
@@ -40,20 +40,19 @@ function Yearbook() {
 
   return (
     <div>
-      {student.map((studentGuy) => {
         return (
           <StudentCard
-            key={studentGuy.id}
-            name={studentGuy.name}
-            nickname={studentGuy.nickname}
-            quote={studentGuy.quote}
-            linkedIn={studentGuy.linkedIn}
-            hobbies={studentGuy.hobbies}
-            image={studentGuy.image}
+          // passing student into student card
+          students = {students}
+           
+            // name={studentsGuy.name}
+            // nickname={studentsGuy.nickname}
+            // quote={studentsGuy.quote}
+            // linkedIn={studentsGuy.linkedIn}
+            // hobbies={studentsGuy.hobbies}
+            // image={studentsGuy.image}
           />
-        )
-      }
-      )}
+       )
     </div>
   )
 }
