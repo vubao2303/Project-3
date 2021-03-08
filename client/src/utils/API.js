@@ -17,6 +17,12 @@ const API = {
     getBooksByYear: function (year) {
         return axios.get("/api/books/year/" + year);
     },
+    getBooksByName: function (name) {
+        return axios.get("/api/books/ynn/" + name);
+    },
+    getBooksByYearandName: function (year, name) {
+        return axios.get("/api/books/yn/" + year + "/" + name);
+    },
     saveStudent: function (studentData) {
         return axios.post("/api/student", studentData);
     },
