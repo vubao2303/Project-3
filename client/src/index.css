@@ -20,3 +20,20 @@ code {
 .schoolList {
   padding:10px;
 }
+
+.yearbookTitle{
+
+  text-align: center;
+}
+.class-name{
+  color:white;
+  font-size:50px;
+  font-family: "Snell Roundhand", cursive;
+  font-weight: bolder;
+  -webkit-text-stroke: 2px ;
+  
+  text-shadow:
+      5px 4px 0 #715C21,
+      1px 1px 0 wheat,
+      5px 3px 0 black
+}

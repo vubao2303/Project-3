@@ -5,6 +5,10 @@ import { useLocation } from "react-router-dom";
 // import FrontResult from '../components/FrontResult/FrontResult';
 // import StudentCard from "../StudentCard/StudentCard";
 import API from "../../utils/API";
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 import "./style.css";
 
 function DisplayClass() {
@@ -63,25 +67,30 @@ function DisplayClass() {
       <div className="row">
         <div className="col-md-5"></div>
         <div className="col-md-4">
-        </div>
-        <div className="row">
-          <div className="searchResult">
-            {Class.map((Class, id) => {
-              var href = "/yearbook/" + Class.id;
-              return (
-                <>
-                  <ul><li> {Class.className}, {Class.gradeLevel}</li></ul>
-                  <button><a key={id} href={href}>View </a> </button>
-                  {/* <button onClick={(e) => handleEdit(e)} value={book}> Edit</button> */}
-                </>
-              )
-            })}
 
-          </div>
+          {Class.map((Class, id) => {
+            var href = "/yearbook/" + Class.id;
+            return (
+              <Card>
+
+                <CardBody>
+                  <CardTitle tag="h5"> Class: {Class.className} </CardTitle>
+                  <CardSubtitle tag="h6" className="mb-2 text-muted"> Grade Level: {Class.gradeLevel} </CardSubtitle>
+
+                  <Button><a key={id} href={href}>View </a></Button>
+
+                </CardBody>
+              </Card>
+            )
+          })}
+
         </div>
-      </div></div>
+      </div>
+    </div>
   )
 
 }
 
 export default DisplayClass;
+
+

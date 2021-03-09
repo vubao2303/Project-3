@@ -7,6 +7,11 @@
 // the list of my year book will take me to the classes and yearbook page
 import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
+
 // import "./style.css";
 
 
@@ -38,21 +43,24 @@ function UserPage() {
                 {books.map((book, id) => {
                     var href = "/display/" + book.id;
                     return (
+
                         <div className="schoolList">
-                            <div className="btn-group dropend">
-                                <div type="button" className=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {book.schoolName}, {book.year}
-                                </div>
-                                <ul className="dropdown-menu">
-                                    <li> <a key={id} href={href}> View </a> </li>
-                                    <li> <a href="/class"> Add Class </a> </li>
-                                    <li> <a href="/student"> Add Student </a> </li>
-                                    <li onClick={(event) => {
+                            <Card>
+
+                                <CardBody>
+                                    <CardTitle tag="h5"> School: {book.schoolName} </CardTitle>
+                                    <CardSubtitle tag="h6" className="mb-2 text-muted"> Year: {book.year} </CardSubtitle>
+
+                                    <Button onClick={() => { window.location.replace(href) }} > View </Button>
+                                    <Button onClick={() => { window.location.replace("/class") }}>Add Class</Button>
+                                    <Button onClick={() => { window.location.replace("/student") }}>Add Student</Button>
+                                    <Button onClick={(event) => {
                                         event.preventDefault();
                                         deleteBook(book.id)
-                                        }}> Delete </li>
-                                </ul>
-                            </div>
+                                    }} > Delete</Button>
+                                </CardBody>
+                            </Card>
+
                         </div>
 
                     )
@@ -65,6 +73,34 @@ function UserPage() {
 
 export default UserPage;
 
+
+
+// import React from 'react';
+// import {
+//     Card, CardImg, CardText, CardBody,
+//     CardTitle, CardSubtitle, Button
+// } from 'reactstrap';
+
+// const Example = (props) => {
+//     return (
+//         <div>
+//             <Card>
+
+//                 <CardBody>
+//                     <CardTitle tag="h5"> School: {book.schoolName} </CardTitle>
+//                     <CardSubtitle tag="h6" className="mb-2 text-muted"> Year: {book.year} </CardSubtitle>
+
+//                     <Button>Button</Button>
+//                     <Button>Button</Button>
+//                     <Button>Button</Button>
+//                     <Button>Button</Button>
+//                 </CardBody>
+//             </Card>
+//         </div>
+//     );
+// };
+
+// export default Example;
 
 // try drop right 
 {/* <div className="btn-group dropend">
