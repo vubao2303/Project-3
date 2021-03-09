@@ -40,18 +40,18 @@ function Yearbook() {
 
   return (
     <div>
-        return (
-          <StudentCard
-          // passing student into student card
-          students = {students}
-           
-            // name={studentsGuy.name}
-            // nickname={studentsGuy.nickname}
-            // quote={studentsGuy.quote}
-            // linkedIn={studentsGuy.linkedIn}
-            // hobbies={studentsGuy.hobbies}
-            // image={studentsGuy.image}
-          />
+
+      <StudentCard height="500px" width="auto"
+        // passing student into student card
+        students={students}
+
+      // name={studentsGuy.name}
+      // nickname={studentsGuy.nickname}
+      // quote={studentsGuy.quote}
+      // linkedIn={studentsGuy.linkedIn}
+      // hobbies={studentsGuy.hobbies}
+      // image={studentsGuy.image}
+      />
        )
     </div>
   )

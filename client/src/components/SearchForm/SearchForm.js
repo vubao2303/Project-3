@@ -91,7 +91,8 @@ function SearchForm() {
             )
           })}
         </div>
-      </div></div>
+      </div>
+    </div>
   )
 
 }

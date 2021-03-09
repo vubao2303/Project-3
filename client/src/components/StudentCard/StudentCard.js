@@ -33,23 +33,16 @@ import {
   CarouselCaption
 } from 'reactstrap';
 
+import { UncontrolledCarousel } from 'reactstrap';
+import "./style.css";
+import Final from "../FinalPage/FinalPage"
+
 
 
 const StudentCard = (props) => {
 
   const items = props.students
 
-  // const items = [
-  //   {
-  //     image: props.image,
-  //     name: props.name,
-  //     nickname: props.nickname,
-  //     hobbies: props.hobbies,
-  //     quote: props.quote
-
-  //   }
-
-  // ];
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -73,19 +66,48 @@ const StudentCard = (props) => {
   const slides = items.map((item) => {
     return (
       <CarouselItem
+        className="custom-tag"
+        tag="div"
+
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item}
       >
-        <img src={item.image} alt={item.altText} />
+        {/* <Final /> */}
+        <div className="row">
 
-        <CarouselCaption captionText={item.quote} captionHeader={item.name} />
+          <div className="col-md-4 col-md-offset-6"> </div>
+          <div className="col-md-7 col-md-offset-3">
+            <img height="550px" width="auto" src={item.image} style={{ "width": "50%", "objectFit": "cover" }} alt={item.altText} />
+          </div>
+
+        </div>
+
+        <CarouselCaption captionText={item.quote} captionHeader={item.name} >
+
+        </CarouselCaption>
       </CarouselItem>
     );
   });
 
+
+
+
+
+
   return (
-    <Carousel
+    // <div>
+    //   <style>
+    //     {
+    //       `.custom-tag {
+    //           max-width: 100%;
+    //           height: 500px;
+
+    //         }`
+    //     }
+    //   </style>
+
+    <Carousel height="500px" width="auto"
       activeIndex={activeIndex}
       next={next}
       previous={previous}
@@ -95,6 +117,8 @@ const StudentCard = (props) => {
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
+
+    // </div>
   );
 }
 
