@@ -5,3 +5,11 @@
   padding: 10px; */
   background-image: url(./simple.jpeg);
 }
+.searchform{
+  padding:20px;
+  margin-top: 20px;
+}
+.searchList{
+  padding: 10px;
+  margin-top: 20px;
+}
