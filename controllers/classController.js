@@ -8,6 +8,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
+        console.log("trollin");
         db.Class.findOne({ where: { id: req.params.id } })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
