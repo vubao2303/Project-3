@@ -16,7 +16,7 @@ function ClassForm() {
 
   }, [])
 
-  function createClass(Class) {
+  function createStudent(Class) {
     if (Class.className && Class.className !== "" && Class.YearbookId && Class.YearbookId !== -1) {
       API.saveClass(Class).then(() => {
         window.location.href = "/student"
@@ -26,6 +26,19 @@ function ClassForm() {
       alert("You need to choose a yearbook and a name to add a class!");
     }
   }
+
+  function createClass(Class) {
+    if (Class.className && Class.className !== "" && Class.YearbookId && Class.YearbookId !== -1) {
+      API.saveClass(Class).then(() => {
+        window.location.href = "/class"
+      });
+    }
+    else {
+      alert("You need to choose a yearbook and a name to add a class!");
+    }
+  }
+
+
 
   function handleChange(event) {
     console.log(event)
@@ -76,7 +89,7 @@ function ClassForm() {
         {/* Save and add student class */}
         <button onClick={e => {
           e.preventDefault();
-          createClass(Class);
+          createStudent(Class);
         }
         } type="button" className="btn btn-primary">Add students</button>
 

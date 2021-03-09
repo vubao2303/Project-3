@@ -24,6 +24,7 @@ function Nav() {
                             </li>
                         </ul>
                         <div className="d-flex">
+                            <a className="nav-link active" aria-current="page" href="/create"> Your profile </a>
                             <a className="nav-link active" aria-current="page" href="/login"> Login</a>
                             <a onClick={logoutUser} className="nav-link active" aria-current="page" href="/"> Logout</a>
                         </div>
