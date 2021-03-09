@@ -1,9 +1,5 @@
 import React, { useState } from "react"
 import API from "../../utils/API";
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
 import "./style.css";
 
 function SearchForm() {
@@ -56,7 +52,6 @@ function SearchForm() {
       <div className="row">
         <div className="col-md-4"></div>
         <div className="col-md-5">
-
           <form className="searchform">
             <div className="mb-5">
               <label htmlFor="searchforYearBook" className="form-label">Search</label>
@@ -66,7 +61,6 @@ function SearchForm() {
                 setYear(event.target.value);
               }} placeholder="Year here" className="form-control" id="searchForYB" />
             </div>
-
             <div className="mb-5">
               <input onChange={(event) => {
                 event.preventDefault();
@@ -74,7 +68,6 @@ function SearchForm() {
                 setName(event.target.value);
               }} placeholder="School name here" className="form-control" id="searchForYBname" />
             </div>
-
             <button onClick={(event) => {
               event.preventDefault();
               loadYearbook(year, name);
@@ -82,14 +75,10 @@ function SearchForm() {
               document.getElementById('searchForYBname').value = '';
             }} type="submit" className="btn btn-primary">Submit</button>
           </form>
-
-
           <div className="searchResult">
             {books.map((book, id) => {
               var href = "/display/" + book.id;
               return (
-
-
                 <p className="searchList"><a key={id} href={href}>{book.schoolName}, {book.year}</a></p>
               )
             })}
@@ -104,14 +93,3 @@ function SearchForm() {
 }
 
 export default SearchForm;
-
-// <Card>
-
-//   <CardBody>
-//     <CardTitle tag="h5"> Yearbook:{book.schoolName} </CardTitle>
-//     <CardSubtitle tag="h6" className="mb-2 text-muted"> Year: {book.year} </CardSubtitle>
-
-//     <Button><a key={id} href={href}>View </a></Button>
-
-//   </CardBody>
-// </Card>

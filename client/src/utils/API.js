@@ -74,18 +74,16 @@ export default API;
 //     updateStudent: function (id, classData) {
 //         return axios.post("/api/classes" + id, classData);
 //     },
-//
-//     
 //     logout: function (){
 //         return axios.get("/api/users/logout");
 //     },
 //     getUserData: function (){
 //         return axios.get("/api/users/user_data");
 //     },
-// nameTaken: function (userData) {
+//     nameTaken: function (userData) {
 //     console.log("triggered api");
 //     return axios.get("/api/users/signup", userData);
-// },
+//     },
 //     findYearbooks: function() {
 //         return axios.get("/api/books");
 //     },

@@ -12,13 +12,10 @@ import Student from "./pages/StudentPage"
 import Class from "./pages/Class"
 import Display from "./pages/Display";
 
-
 function App() {
   return (
     <Router >
       <Nav />
-
-
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/display" component={Display} />
@@ -28,12 +25,7 @@ function App() {
         <Route exact path="/student" component={Student} />
         <Route exact path="/class" component={Class} />
         <Route path="/yearbook" component={Yearbook} />
-
         <Route path="/display" component={Display} />
-        {/* <Route exact path="/" component={Yearbook} /> */}
-        {/* <Route exact path="/save" component={Saved} />
-        <Route exact path="/search" component={Books} /> */}
-        {/* <Route component={NoMatch} /> */}
       </Switch>
     </Router>
   );

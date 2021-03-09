@@ -25,17 +25,6 @@ module.exports = {
                 // send a false statement for client to handle error
                 res.send(false);
             })
-        // res.json(req.user);
-        // // req.body.user maybe 
-        // // user is validate and compare your password 
-        // // we need to check here for password if it is there already
-        // // another if user call to database (req.user. username) 
-        // if (req.user.password) {
-        //     db.User.validPassword
-        //     // pass in the password for the found user, 
-        // }
-        // then we can return a message say yes status 200
-
     },
     signup: function (req, res) {
         console.log("got to controller");
