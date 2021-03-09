@@ -62,9 +62,6 @@ function StudentForm() {
   function handleSave(e) {
     setStudent({ ...Student, [e.target.name]: e.target.value })
   }
-
-
-
   return (
     <div className="container">
 
@@ -72,7 +69,6 @@ function StudentForm() {
         <div className="col-md-3"></div>
         <div className="col-md-6">
           <form className="studentform">
-
             <select className="form-select" aria-label="Default select example" onChange={
               (event => {
                 event.preventDefault();
@@ -88,7 +84,6 @@ function StudentForm() {
               }
               )}
             </select>
-
             <select className="form-select" aria-label="Default select example" onChange={
               (event => {
                 event.preventDefault();
@@ -141,8 +136,6 @@ function StudentForm() {
               <input onChange={handleSave} name="linkedIn" type="text" className="form-control" placeholder="LinkedIn link" id="basic-url" aria-describedby="basic-addon3" />
             </div>
 
-
-
             <button
               type="submit" className="btn btn-primary" onClick={(event) => {
                 event.preventDefault();
@@ -160,45 +153,11 @@ function StudentForm() {
               }
               }
             >Finished </button>
-
           </form>
         </div>
-
       </div>
     </div>
   )
 }
 
 export default StudentForm;
-
-
-
-{/* <form>
-  <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1">
-  </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1">
-    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-</form> */}
-
-// function addStudent(Students) {
-//   var studentData = {
-//     stName: stName,
-//     hobbies: hobbies,
-//     LinkedIn: linked,
-//     Quote: Quote
-//   };
-//   API.saveStudent(studentData).then(res => {
-//     console.log(studentData)
-//     console.log("yes you added")
-//   })
-// }

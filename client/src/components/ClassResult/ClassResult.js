@@ -63,9 +63,9 @@ function DisplayClass() {
   //     .catch(err => console.log(err));
   // }
   return (
-    <div>
+    <div id = "everything">
       <div className="row">
-        <div className="col-md-5"></div>
+        <div className="col-md-4"></div>
         <div className="col-md-4">
 
           {Class.map((Class, id) => {
@@ -77,7 +77,7 @@ function DisplayClass() {
                   <CardTitle tag="h5"> Class: {Class.className} </CardTitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted"> Grade Level: {Class.gradeLevel} </CardSubtitle>
 
-                  <Button><a key={id} href={href}>View </a></Button>
+                  <Button onClick={()=>{window.location.replace(href)}}>View </Button>
 
                 </CardBody>
               </Card>
