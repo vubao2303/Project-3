@@ -1,6 +1,6 @@
-git# Project-3
-# Project 3
+# Mnemosyne
 
+Create a react application that allows the user to create a yearbook for multiple classes. The user can login and create an account within the application create a yearbook with multiple classes. Search for previously created yearbooks they created by year and name. View students within a class. Edit yearbook data within the app.
 
 - Full stack application deployed to Heroku
 - Team build requiring constant communication
@@ -41,23 +41,65 @@ Demo Video:
   </ul>
 - In models folder
   <ul> 
- <li>
-  </li> 
+  <li> class model create class relationship sequelize define class name and grade level
+ <li> index model connecting database and exporting
+ <li> student sequelize define student attributes
+  </li> user sequelize define user login data
+  <li> yearbook sequelize define yearbook name and year 
   </ul>
 
-- In routes folder to handle when the user "visit" the page
+  - In controllers folder
   <ul> 
-  <li> 
-  <li> API routes to serve up JSON object use to populate the page 
-  </li>
+  <li> classController - manipulate class model by create find & update
+ <li> student Controller - manipulate student model by create find & update
+ <li> user controller - manipulate student model to create  login, signup, login
+  <li> yearbook controller - manipulate student model to create find by and create
   </ul>
+
+- Backend routes/In routes folder to handle when the user "visit" the page, creates route to connect with the client side server and the backend controller
+  <ul> 
+  <li> class route create routes for class controller and client side class api. Matches with "/api/classes",  "/api/classes/:id", "/api/classes/book/:book".
+  <li>    yearbook routes create routes for yearbook controller and client side class api. Matches with "yearbook routes",  "class routes", "student routes", "student routes", "user routes".
+  <li>  student route create routes for student controller and client side class api. Matches with "/api/student",  "/api/classes/:id", "/api/classes/:id".
+  <li>  user route create routes for user controller and client side class api. Matches with "/api/users/login",  "/api/users/signup", "/api/users/logout", "/api/users/user_data".
+  <li>  yearbook route create routes for yearbook controller and client side yearbook api. Matches with "/api/books",  "/api/books/:id", "/api/books/year/:year", "/api/books/user/:user".
+   <li>  index route create routes for index controller and client side class api. 
+  </ul>
+
+-Api Routes/Front end routes
+<ul>
+<li> combine routes into variable named API, sign up function create post route to send to back end to create user data. login function to create put method for users login. get user data function to create get method for users/users_data. create yearbook post method for books. 
+<ul>
 
 - In public folder
   <ul> 
-  <li>
-  </li>
+  <li> css for the application
+  <li> html to render the page display app
+  </li> js 
    </ul>
 
+- components
+  <ul>
+  <li> classform, class results, createform, footer, front result, loginform, mainpage, nav, search form, student card, student form, userpage renders bootstrap components and data on page
+  <ul>
+
+  - pages 
+<ul>
+<li> class, create, display, login, main, search, student page, yearbook displays components on page
+<ul>
+
+- utils
+<ul>
+<li> hold api routes
+<ul>
+
+- sql
+<ul>
+<li> schema define and create tables for yearbook
+<li> seeds insert values of tables
+<ul>
+
+-my
 - In server.js file
    <ul> 
   <li> Requiring necessary npm packages
@@ -70,78 +112,7 @@ Demo Video:
 
 ## Code Snippet
 
-Snippet of the use of sequelize operators. [Op.not] was used to set a condition that finds all Parties where the hostId is not equivalent to the userId in order to prevent duplicate events being created.
 
-```javascript
-app.get("/api/availableparty", (req, res) => {
-  db.Party.findAll({
-    where: {
-      hostId: {
-        [Op.not]: req.user.id,
-      },
-    },
-    include: [
-      {
-        model: db.User,
-        as: "host",
-        attributes: ["name"],
-      },
-    ],
-  })
-    .then((events) => {
-      res.json(events);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send(false);
-    });
-});
-```
-
-This snippet of code is used to give functionality to the buttons that delete the specific list item's selected by the user. Which in turn calls an ajax request to the server via a specified route, and deletes the data from the appropriate table in the database.
-
-```Javascript
-    $(".attendEvents").append(html);
-
-    $(document).on("click", ".unAttend-btn", (e) => {
-      console.log(e.target.id);
-      console.log($(this));
-      var id = e.target.id;
-      console.log(id);
-      $.ajax({
-        url: "/api/unattend/" + id,
-        method: "DELETE",
-      }).then(() => {
-        console.log("Deleted");
-        window.location.reload();
-      });
-    });
-  }
-```
-
-Use Passport to authenticate file. If there's no user with the given email or passwords, an error message will show.
-
-```Javascript
-passport.use(new LocalStrategy(
-  {usernameField: "email"},
-  function(email, password, done) {db.User.findOne({
-      where: {email: email}
-    }).then(function(dbUser) {
-      if (!dbUser) {
-        return done(null, false, {
-          message: "Incorrect email."
-        });
-      }
-      else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
-      }
-      return done(null, dbUser);
-    });
-  }
-));
-```
 
 In order to help keep authentication state across HTTP requests, Sequelize needs to serialize and deserialize the user
 
@@ -179,8 +150,8 @@ passport.deserializeUser(function(obj, cb) {
 |               |                                                                                                                                                                                                              |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **B Tram Vu** | [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/b-tram-vu-866250121/) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/vubao2303)          |
-| **Raffi**     | [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/jaja-brown-a42261201/) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/jbrown827)         |
-| **Jasmine**   | [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/ron-arjay-caluag-00b29b182/) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/ArjayCaluag) |
+| **Raffi Lepejian**     | [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/jaja-brown-a42261201/) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/jbrown827)         |
+| **Jasmine Franklin**   | [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/ron-arjay-caluag-00b29b182/) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/ArjayCaluag) |
 
 
 ---
