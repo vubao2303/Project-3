@@ -40,7 +40,6 @@ function Yearbook() {
 
   return (
     <div>
-        return (
           <StudentCard
           // passing student into student card
           students = {students}
