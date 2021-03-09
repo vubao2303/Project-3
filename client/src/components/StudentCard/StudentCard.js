@@ -73,20 +73,27 @@ const StudentCard = (props) => {
         onExited={() => setAnimating(false)}
         key={item}
       >
+
+
         {/* <Final /> */}
         <div className="row">
 
-          <div className="col-md-4 col-md-offset-6"> </div>
-          <div className="col-md-7 col-md-offset-3">
+          <div className="col-sm-4 col-sm-offset-6"> </div>
+          <div className="col-sm-7 col-sm-offset-3">
+            <div>  {item.linkedIn} </div>
             <img height="550px" width="auto" src={item.image} style={{ "width": "50%", "objectFit": "cover" }} alt={item.altText} />
+            <div className="studentQuote">  {item.quote} </div>
           </div>
 
         </div>
 
-        <CarouselCaption captionText={item.quote} captionHeader={item.name} >
+        <CarouselCaption captionText={item.nickname} captionHeader={item.name}   >
 
         </CarouselCaption>
-      </CarouselItem>
+
+
+
+      </CarouselItem >
     );
   });
 

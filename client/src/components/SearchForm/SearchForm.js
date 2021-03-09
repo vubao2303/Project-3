@@ -1,5 +1,9 @@
 import React, { useState } from "react"
 import API from "../../utils/API";
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 import "./style.css";
 
 function SearchForm() {
@@ -80,17 +84,19 @@ function SearchForm() {
           </form>
 
 
+          <div className="searchResult">
+            {books.map((book, id) => {
+              var href = "/display/" + book.id;
+              return (
 
+
+                <p className="searchList"><a key={id} href={href}>{book.schoolName}, {book.year}</a></p>
+              )
+            })}
+          </div>
         </div>
 
-        <div className="searchResult">
-          {books.map((book, id) => {
-            var href = "/display/" + book.id;
-            return (
-              <ul><li><a key={id} href={href}>{book.schoolName}, {book.year}</a></li></ul>
-            )
-          })}
-        </div>
+
       </div>
     </div>
   )
@@ -98,3 +104,14 @@ function SearchForm() {
 }
 
 export default SearchForm;
+
+// <Card>
+
+//   <CardBody>
+//     <CardTitle tag="h5"> Yearbook:{book.schoolName} </CardTitle>
+//     <CardSubtitle tag="h6" className="mb-2 text-muted"> Year: {book.year} </CardSubtitle>
+
+//     <Button><a key={id} href={href}>View </a></Button>
+
+//   </CardBody>
+// </Card>
