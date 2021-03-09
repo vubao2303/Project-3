@@ -6,10 +6,11 @@ import API from "../utils/API";
 function Yearbook() {
   let locationObject = useLocation();
   let location = locationObject.pathname.slice(10);
-  console.log(location);
+  // console.log(location);
   // const [book, setBook] = useState();
   const [Class, setClass] = useState();
   const [students, setStudents] = useState([]);
+  const [classObject, setClassObject] = useState({ id: 0, schoolName: "loading" });
 
   useEffect(() => {
     setClass(location);
@@ -20,10 +21,16 @@ function Yearbook() {
   // class changes with book changes
 
   useEffect(() => {
-
-    API.getStudentByClass(Class).then((studentsArr) => {
-      setStudents([...studentsArr.data]);
-    });
+    if (Class) {
+      API.getStudentByClass(Class).then((studentsArr) => {
+        setStudents([...studentsArr.data]);
+      });
+      API.getClassById(Class).then((littleClass) => {
+        if (littleClass.data) {
+          setClassObject(littleClass.data);
+        }
+      });
+    }
   }, [Class])
 
   // student changes when class
@@ -38,19 +45,25 @@ function Yearbook() {
   //   }
   // }, [Class])
 
+
   return (
     <div>
-          <StudentCard
-          // passing student into student card
-          students = {students}
-           
-            // name={studentsGuy.name}
-            // nickname={studentsGuy.nickname}
-            // quote={studentsGuy.quote}
-            // linkedIn={studentsGuy.linkedIn}
-            // hobbies={studentsGuy.hobbies}
-            // image={studentsGuy.image}
-          />
+      <div className="searchResult">
+        <h1>{classObject.className}, {classObject.gradeLevel}</h1>
+        <ul><li><a href={"/display/" + classObject.YearbookId}>Back to the rest of the classes</a></li></ul>
+      </div>
+
+      <StudentCard
+        // passing student into student card
+        students={students}
+
+      // name={studentsGuy.name}
+      // nickname={studentsGuy.nickname}
+      // quote={studentsGuy.quote}
+      // linkedIn={studentsGuy.linkedIn}
+      // hobbies={studentsGuy.hobbies}
+      // image={studentsGuy.image}
+      />
        )
     </div>
   )

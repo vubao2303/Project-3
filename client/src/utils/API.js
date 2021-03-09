@@ -44,6 +44,9 @@ const API = {
     deleteBook: function (id) {
         return axios.delete("/api/books/" + id);
     },
+    getClassById: function (id) {
+        return axios.get("/api/classes/" + id);
+    },
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API
