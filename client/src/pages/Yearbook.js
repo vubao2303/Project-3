@@ -48,12 +48,17 @@ function Yearbook() {
 
   return (
     <div>
+
+
+
+
       <div className="searchResult">
         <h1>{classObject.className}, {classObject.gradeLevel}</h1>
         <ul><li><a href={"/display/" + classObject.YearbookId}>Back to the rest of the classes</a></li></ul>
       </div>
 
       <StudentCard
+
         // passing student into student card
         students={students}
 
@@ -64,7 +69,7 @@ function Yearbook() {
       // hobbies={studentsGuy.hobbies}
       // image={studentsGuy.image}
       />
-       )
+       
     </div>
   )
 }

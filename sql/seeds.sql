@@ -3,13 +3,13 @@ INSERT INTO yearbooks (schoolName, year, createdAt, updatedAt)
 VALUES ("The Saint Thomas School for Dogs", 2013, "2021-03-08 00:27:37", "2021-03-08 00:27:37");
 
 INSERT INTO classes (className, gradeLevel, YearbookId, createdAt, updatedAt)
-VALUES ("Mister Schnitzels Good and mostly Good Boys and Girls", 1, 1, "2021-03-08 00:27:37", "2021-03-08 00:27:37");
+VALUES ("Mister Schnitzels Good and mostly Good Boys and Girls", 1, 29, "2021-03-08 00:27:37", "2021-03-08 00:27:37");
 
 INSERT INTO classes (className, gradeLevel, YearbookId, createdAt, updatedAt)
-VALUES ("Miss Perrys Ruffneck Ribscratchers", 1, 1, "021-03-08 00:27:37", "2021-03-08 00:27:37");
+VALUES ("Miss Perrys Ruffneck Ribscratchers", 1, 29, "021-03-08 00:27:37", "2021-03-08 00:27:37");
 
 INSERT INTO classes (className, gradeLevel, YearbookId, createdAt, updatedAt)
-VALUES ("Vasilievs Venal Villains", 1, 1, "2021-03-08 00:27:37", "2021-03-08 00:27:37");
+VALUES ("Vasilievs Venal Villains", 1, 29, "2021-03-08 00:27:37", "2021-03-08 00:27:37");
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
 VALUES ("Chester", "Cha-cha","biting, chewing, fighting evil", "BARK, BARK. GRRROWWWWWWL!", "https://en.wikipedia.org/wiki/Pit_bull",  "https://geniusvets.s3.amazonaws.com/gv-dog-breeds/american-pitbull-1.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 1);
