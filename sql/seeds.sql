@@ -12,19 +12,19 @@ INSERT INTO classes (className, gradeLevel, YearbookId, createdAt, updatedAt)
 VALUES ("Vasilievs Venal Villains", 1, 29, "2021-03-08 00:27:37", "2021-03-08 00:27:37");
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
-VALUES ("Chester", "Cha-cha","biting, chewing, fighting evil", "BARK, BARK. GRRROWWWWWWL!", "https://en.wikipedia.org/wiki/Pit_bull",  "https://geniusvets.s3.amazonaws.com/gv-dog-breeds/american-pitbull-1.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 1);
+VALUES ("Chester", "Cha-cha","biting, chewing, fighting evil", "BARK, BARK. GRRROWWWWWWL!", "https://en.wikipedia.org/wiki/Pit_bull",  "https://geniusvets.s3.amazonaws.com/gv-dog-breeds/american-pitbull-1.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 12);
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
-VALUES ("Phillip", "Fefe","sleeping", "High pitched bark", "https://en.wikipedia.org/wiki/Chihuahua_(dog)",  "https://vetstreet-brightspot.s3.amazonaws.com/26/0d/6443c92b4c67ae315a8bb8be16e1/Chihuahua-AP-KIDP62-645lc061113.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 1);
+VALUES ("Phillip", "Fefe","sleeping", "High pitched bark", "https://en.wikipedia.org/wiki/Chihuahua_(dog)",  "https://vetstreet-brightspot.s3.amazonaws.com/26/0d/6443c92b4c67ae315a8bb8be16e1/Chihuahua-AP-KIDP62-645lc061113.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 12);
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
-VALUES ("Selene", "CC","chasing squirrels", "Concerned whine", "https://en.wikipedia.org/wiki/West_Highland_White_Terrier",  "https://cdn.britannica.com/s:300x169,c:crop/02/198002-050-452BDBD2/West-Highland-White-Terrier.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 1);
+VALUES ("Selene", "CC","chasing squirrels", "Concerned whine", "https://en.wikipedia.org/wiki/West_Highland_White_Terrier",  "https://cdn.britannica.com/s:300x169,c:crop/02/198002-050-452BDBD2/West-Highland-White-Terrier.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 12);
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
-VALUES ("Fringus", "Fringus","destroying shoes, digging holes", "confused headtilt", "https://en.wikipedia.org/wiki/Rottweiler",  "https://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-2.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 1);
+VALUES ("Fringus", "Fringus","destroying shoes, digging holes", "confused headtilt", "https://en.wikipedia.org/wiki/Rottweiler",  "https://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-2.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 12);
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
-VALUES ("Leo", "Leonidas","racing", "prolonged stare, quiet boof", "https://en.wikipedia.org/wiki/Whippet",  "https://thehappypuppysite.com/wp-content/uploads/2018/06/whippet-lifespan-header.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 2);
+VALUES ("Leo", "Leonidas","racing", "prolonged stare, quiet boof", "https://en.wikipedia.org/wiki/Whippet",  "https://thehappypuppysite.com/wp-content/uploads/2018/06/whippet-lifespan-header.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 13);
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
 VALUES ("Karma", "B","camping, ball retreival", "pant pant pant", "https://en.wikipedia.org/wiki/Labrador_Retriever",  "https://www.outdoorlife.com/resizer/rSewLKFY4v-Gg3QCBa6is6-c1Ak=/760x570/cloudfront-us-east-1.images.arcpublishing.com/bonnier/5N4O2NV4DVERZJRX7EFCOWFES4.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 2);
@@ -46,3 +46,5 @@ VALUES ("Principie", "Princy","sleeping", "sigh", "https://en.wikipedia.org/wiki
 
 INSERT INTO students (name, nickname, hobbies, quote, linkedIn, image, createdAt, updatedAt, ClassId)
 VALUES ("Mr. Dog", "Mister","tax filing", "-", "https://en.wikipedia.org/wiki/Poodle",  "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/220px-Full_attention_%288067543690%29.jpg", "2021-03-08 00:27:37", "2021-03-08 00:27:37", 3);
+
+
