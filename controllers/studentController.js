@@ -21,5 +21,10 @@ module.exports = {
         db.Student.update(req.body, { where: { id: req.body.id } })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    delete: function (req, res) {
+        db.Student.destroy({ where: { id: req.params.id } })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
     }
 };
