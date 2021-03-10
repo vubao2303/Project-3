@@ -6,11 +6,12 @@ router
     .route("/")
     .post(studentController.create);
 
-// Matches with "/api/classes/:id"
+// Matches with "/api/students/:id"
 router
     .route("/:id")
     .get(studentController.findById)
-    .put(studentController.update);
+    .put(studentController.update)
+    .delete(studentController.delete);
 
 // Matches with "/api/classes/:id"
 router

@@ -1,5 +1,6 @@
 import React from "react"
 import StudentForm from '../components/StudentForm/StudentForm';
+import StudentEdit from '../components/StudentEdit/StudentEdit';
 
 function SForm() {
   return (
@@ -9,6 +10,7 @@ function SForm() {
         <div className="col-md-8"></div>
 
         <StudentForm />
+        <StudentEdit />
       </div>
     </div>
   )
