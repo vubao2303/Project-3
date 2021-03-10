@@ -44,7 +44,7 @@ function StudentForm() {
   }, [Classo])
 
   function deleteStudent() {
-    if (Student !== -1){
+    if (Student !== -1) {
       API.deleteStudent(Student).then(() => {
         window.location.href = "/student";
       })
@@ -114,6 +114,13 @@ function StudentForm() {
               }
               }
             >Delete </button>
+            <button
+              className="btn btn-primary" onClick={(event) => {
+                event.preventDefault();
+                window.location.href = "/create";
+              }
+              }
+            >Back to yearbooks </button>
           </form>
         </div>
       </div>
