@@ -27,6 +27,19 @@ function Nav() {
                             <a className="nav-link active" aria-current="page" href="/create"> Your profile </a>
                             <a className="nav-link active" aria-current="page" href="/login"> Login</a>
                             <a onClick={logoutUser} className="nav-link active" aria-current="page" href="/"> Logout</a>
+                            <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                <ul className="navbar-nav">
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Contact Us</a>
+                                        <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                            <li><a className="dropdown-item" target="_blank" href="https://www.linkedin.com/in/b-tram-vu/">B Vu</a></li>
+                                            <li><a className="dropdown-item" target="_blank" href="https://www.linkedin.com/in/raffi-lepejian-071876153/">Raffi Lepejian</a></li>
+                                            <li><a className="dropdown-item" target="_blank" href="https://www.linkedin.com/in/jasmine-franklin-8b08ba121/">Jasmine Franklin</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
