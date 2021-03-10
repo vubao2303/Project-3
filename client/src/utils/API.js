@@ -5,7 +5,6 @@ const API = {
         return axios.post("/api/users/signup", userData);
     },
     login: function (userData) {
-        console.log("i login")
         return axios.put("/api/users/login", userData);
     },
     getUserData: function () {
@@ -50,6 +49,9 @@ const API = {
     deleteStudent: function (id) {
         return axios.delete("/api/student/" + id);
     },
+    getUserById: function (id) {
+        return axios.get("/api/users/" + id)
+    }
 }
 export default API;
 // // Export an object containing methods we'll use for accessing the random user API

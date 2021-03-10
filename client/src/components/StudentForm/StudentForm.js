@@ -76,7 +76,7 @@ function StudentForm() {
                 setBook(newBookId);
               })
             }>
-              <option value={false} defaultValue>Select one of your books to add this class to</option>
+              <option value={false} defaultValue>Choose A Yearbook</option>
               {books.map(book => {
                 return (
                   <option value={book.id}>{book.schoolName}, {book.year}</option>
@@ -90,7 +90,7 @@ function StudentForm() {
                 setStudent({ ...Student, ClassId: event.target.value });
               })
             }>
-              <option value={-1} defaultValue>Select one of the classes in your selected yearbook to add this student to</option>
+              <option value={-1} defaultValue>Choose A Class To Add The Student To </option>
               {
                 Class.map(littleClass => {
                   return (
