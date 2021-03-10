@@ -59,7 +59,7 @@ function LoginForm() {
                         <label for="exampleInputEmail1" className="form-label">Email address</label>
                         <input placeholder="Email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(event) => {
                             event.preventDefault();
-                            // console.log("banana")
+
                             setName(event.target.value);
                         }} />
                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
@@ -68,7 +68,6 @@ function LoginForm() {
                         <label for="exampleInputPassword1" className="form-label">Password</label>
                         <input placeholder="Password" type="password" className="form-control" id="exampleInputPassword1" onChange={(event) => {
                             event.preventDefault();
-                            // console.log("banana")
                             setPassword(event.target.value);
                         }} />
                     </div>

@@ -5,8 +5,6 @@ var bcrypt = require("bcryptjs");
 // Defining methods for the user controller
 module.exports = {
     login: function (req, res) {
-        // console.log(res)
-        console.log(req.body.username);
         db.User.findOne({ where: { username: req.body.username } })
             .then(user => {
                 // send user id back to client
@@ -18,7 +16,7 @@ module.exports = {
                         res.send("wrong");
                     }
                 })
-                // res.json(user.id);
+
             }).catch(err => {
                 // error
                 console.log(err);
@@ -58,11 +56,11 @@ module.exports = {
 
     getUserData: function (req, res) {
         if (!req.user) {
-            console.log("banana")
+
             // The user is not logged in, send back an empty object
             res.json({});
         } else {
-            console.log("apple")
+
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             res.json({

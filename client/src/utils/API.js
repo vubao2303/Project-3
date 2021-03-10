@@ -5,7 +5,6 @@ const API = {
         return axios.post("/api/users/signup", userData);
     },
     login: function (userData) {
-        console.log("i login")
         return axios.put("/api/users/login", userData);
     },
     getUserData: function () {
