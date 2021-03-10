@@ -20,6 +20,11 @@ router
     .route("/logout")
     .get(userController.logout);
 
+// Matches with "/api/users/logout"
+router
+    .route("/:id")
+    .get(userController.getUserById);
+
 // Matches with "/api/users/user_data"
 router
     .route("/user_data")

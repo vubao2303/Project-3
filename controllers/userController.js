@@ -7,11 +7,11 @@ module.exports = {
     login: function (req, res) {
         // console.log(res)
         console.log(req.body.username);
-        db.User.findOne({ where: {username: req.body.username} })
+        db.User.findOne({ where: { username: req.body.username } })
             .then(user => {
                 // send user id back to client
                 bcrypt.compare(req.body.password, user.password).then((result) => {
-                    if(result == true){
+                    if (result == true) {
                         res.json(user.id);
                     }
                     else {
@@ -33,7 +33,7 @@ module.exports = {
                 res.json(true);
                 // res.redirect(307, "/api/login");
             })
-            .catch( (err) =>  {
+            .catch((err) => {
                 // res.status(401).json(err);
                 res.json(false);
             });
@@ -42,6 +42,20 @@ module.exports = {
         req.logout();
         res.redirect("/login");
     },
+
+
+    getUserById: function (req, res) {
+        db.User.findOne({ where: { id: req.params.id } })
+            .then((user) => {
+                res.json(user);
+                // res.redirect(307, "/api/login");
+            })
+            .catch((err) => {
+                // res.status(401).json(err);
+                res.json(err);
+            });
+    },
+
     getUserData: function (req, res) {
         if (!req.user) {
             console.log("banana")
@@ -55,6 +69,6 @@ module.exports = {
                 username: req.user.username,
                 id: req.user.id
             });
-        } g
+        }
     }
 };

@@ -16,6 +16,8 @@ import {
 function UserPage() {
     const [books, setBooks] = useState([]);
     const [user, setUser] = useState(sessionStorage.getItem("userId"));
+
+
     useEffect(() => {
         API.getBooksByUser(user).then((books) => {
             setBooks(books.data);
