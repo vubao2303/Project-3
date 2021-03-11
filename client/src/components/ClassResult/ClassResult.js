@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 // import StudentCard from "../StudentCard/StudentCard";
 import API from "../../utils/API";
 import {
-  Card, CardImg, CardText, CardBody,
+  Card, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 import "./style.css";
@@ -45,25 +45,9 @@ function DisplayClass() {
       )
     }
   }, [Class])
-  // function handleEdit(e) {
-  //   API.findBookById(e.target.value).then((foundbook) => {
-  //     console.log(foundbook)
 
-  //     if (foundbook.data.UserId == sessionStorage.getItem("userId")) { window.location.replace("/student") }
-  //   })
-  // }
-
-  // function loadClasses(searchBooks) {
-  //   console.log("loadClasses")
-
-  //   API.getClassByBook(searchBooks).then((Class) => {
-  //     setClass(Class.data);
-  //     console.log(Class.data);
-  //   })
-  //     .catch(err => console.log(err));
-  // }
   return (
-    <div id = "everything">
+    <div id="everything">
       <div className="row">
         <div className="col-md-4"></div>
         <div className="col-md-4">
@@ -77,7 +61,7 @@ function DisplayClass() {
                   <CardTitle tag="h5"> Class: {Class.className} </CardTitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted"> Grade Level: {Class.gradeLevel} </CardSubtitle>
 
-                  <Button onClick={()=>{window.location.replace(href)}}>View </Button>
+                  <Button onClick={() => { window.location.replace(href) }}>View </Button>
 
                 </CardBody>
               </Card>
