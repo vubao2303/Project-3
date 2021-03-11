@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from "react"
 import API from "../../utils/API";
 import {
-    Card, CardImg, CardText, CardBody,
+    Card, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
