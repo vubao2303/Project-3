@@ -20,13 +20,24 @@ function Nav() {
                                 <a className="nav-link active" aria-current="page" href="/create"> Create</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/Search">Search</a>
+                                <a className="nav-link" href="/Search"><i class="fas fa-search"></i>
+                                </a>
                             </li>
                         </ul>
                         <div className="d-flex">
-                            <a className="nav-link active" aria-current="page" href="/create"> Your profile </a>
-                            <a className="nav-link active" aria-current="page" href="/login"> Login</a>
-                            <a onClick={logoutUser} className="nav-link active" aria-current="page" href="/"> Logout</a>
+                            <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                <ul className="navbar-nav">
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-user"></i></a>
+                                        <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                            <li><a className="dropdown-item" href="/create"> Your Profile</a></li>
+                                            <li><a className="dropdown-item" href="/login"> Login </a> </li>
+                                            <li><a onClick={logoutUser} className="dropdown-item" href="/"> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                             <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
                                 <ul className="navbar-nav">
                                     <li className="nav-item dropdown">

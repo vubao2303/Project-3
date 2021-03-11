@@ -54,19 +54,19 @@ function SearchForm() {
         <div className="col-md-5">
           <form className="searchform">
             <div className="mb-5">
-              <label htmlFor="searchforYearBook" className="form-label">Search</label>
+              <label htmlFor="searchforYearBook" className="form-label"><i class="fas fa-search"></i></label>
               <input onChange={(event) => {
                 event.preventDefault();
                 // console.log("banana")
                 setYear(event.target.value);
-              }} placeholder="Year here" className="form-control" id="searchForYB" />
+              }} placeholder="Seach by Year" className="form-control" id="searchForYB" />
             </div>
             <div className="mb-5">
               <input onChange={(event) => {
                 event.preventDefault();
                 // console.log("banana")
                 setName(event.target.value);
-              }} placeholder="School name here" className="form-control" id="searchForYBname" />
+              }} placeholder="Search by Name" className="form-control" id="searchForYBname" />
             </div>
             <button onClick={(event) => {
               event.preventDefault();
