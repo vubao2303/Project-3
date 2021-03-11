@@ -44,13 +44,13 @@ function UserPage() {
                                 <CardBody>
                                     <CardTitle tag="h5"> School: {book.schoolName} </CardTitle>
                                     <CardSubtitle tag="h6" className="mb-2 text-muted"> Year: {book.year} </CardSubtitle>
-                                    <Button onClick={() => { window.location.replace(href) }} > View </Button>
-                                    <Button onClick={() => { window.location.replace("/class") }}>Add Class</Button>
-                                    <Button onClick={() => { window.location.replace("/student") }}>Add Student</Button>
+                                    <Button onClick={() => { window.location.replace(href) }} > <i class="fas fa-eye"></i></Button>
+                                    <Button onClick={() => { window.location.replace("/class") }}> <i class="fas fa-plus"></i> Class</Button>
+                                    <Button onClick={() => { window.location.replace("/student") }}><i class="fas fa-plus"></i> Student</Button>
                                     <Button onClick={(event) => {
                                         event.preventDefault();
                                         deleteBook(book.id)
-                                    }} > Delete</Button>
+                                    }} > <i class="fas fa-trash-alt"></i></Button>
                                 </CardBody>
                             </Card>
                         </div>
