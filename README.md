@@ -3,6 +3,7 @@
 Create a react application that allows the user to create a yearbook for multiple classes. The user can login and create an account within the application create a yearbook with multiple classes. Search for previously created yearbooks they created by year and name. View students within a class. Edit yearbook data within the app.
 
 Demo Video:
+![Image](yearbookgif.gif)
 
 
 ## Table of Contents
