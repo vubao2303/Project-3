@@ -10,24 +10,29 @@ import Create from "./pages/Create"
 import Main from "./pages/Main"
 import Student from "./pages/StudentPage"
 import Class from "./pages/Class"
+import Foot from "./components/Footer/Footer"
 import Display from "./pages/Display";
+
 
 function App() {
   return (
-    <Router >
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route exact path="/display" component={Display} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/search" component={Search} />
-        <Route exact path="/create" component={Create} />
-        <Route exact path="/student" component={Student} />
-        <Route exact path="/class" component={Class} />
-        <Route path="/yearbook" component={Yearbook} />
-        <Route path="/display" component={Display} />
-      </Switch>
-    </Router>
+    <div>
+      <Router >
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/display" component={Display} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/create" component={Create} />
+          <Route exact path="/student" component={Student} />
+          <Route exact path="/class" component={Class} />
+          <Route path="/yearbook" component={Yearbook} />
+          <Route path="/display" component={Display} />
+        </Switch>
+      </Router>
+      <Foot />
+    </div>
   );
 }
 
