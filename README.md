@@ -8,6 +8,7 @@ Create a react application that allows the user to create a yearbook for multipl
 
 
 Demo Video:
+![Image](yearbookgif.gif)
 
 
 ## Table of Contents
