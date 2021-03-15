@@ -46,9 +46,11 @@ const StudentCard = (props) => {
           <div className="col-sm-8 col-sm-offset-3">
             <div>  <a href={item.linkedIn} target="_blank" >More about me! </a></div>
             <img height="500px" maxwidth="auto" src={item.image} style={{ "width": "50%", "objectFit": "cover" }} alt={item.altText} />
-            <div className="studentQuote">  {item.quote} </div>
+
           </div>
+
         </div>
+        <div className="studentQuote">  {item.quote} </div>
         <CarouselCaption className="carouselCaption" captionText={item.nickname} captionHeader={item.name}   >
         </CarouselCaption>
       </CarouselItem >
